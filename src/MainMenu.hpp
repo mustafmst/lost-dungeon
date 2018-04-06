@@ -10,6 +10,8 @@ namespace ld
 	private:
 		GameDataRef _data;
 		sf::Text _gameTitle;
+		sf::Text _playButton;
+		sf::Text _exitButton;
 	public:
 		MainMenu(GameDataRef data) : _data(data) {}
 		void Init();

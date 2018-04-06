@@ -1,1 +1,1 @@
-./Debug/src_MainMenu.cpp.o ./Debug/src_SplashState.cpp.o ./Debug/src_main.cpp.o ./Debug/src_Game.cpp.o ./Debug/src_StateMachine.cpp.o ./Debug/src_InputManager.cpp.o ./Debug/src_AssetManager.cpp.o ./Debug/src_GameState.cpp.o
+./Release/src_MainMenu.cpp.o ./Release/src_SplashState.cpp.o ./Release/src_main.cpp.o ./Release/src_Game.cpp.o ./Release/src_StateMachine.cpp.o ./Release/src_InputManager.cpp.o ./Release/src_AssetManager.cpp.o ./Release/src_GameState.cpp.o
