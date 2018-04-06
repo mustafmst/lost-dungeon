@@ -33,6 +33,6 @@ void ld::StateMachine::RemoveState()
 
 ld::GameStateRef &ld::StateMachine::CurrentState()
 {
-	return _states.top();
+	_states.top();
 }
 

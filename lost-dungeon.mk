@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/src_main.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_StateMachine.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_InputManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_GameState.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/src_SplashState.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_main.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_StateMachine.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_InputManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_GameState.cpp$(ObjectSuffix) 
 
 
 
@@ -96,6 +96,14 @@ PreBuild:
 ##
 ## Objects
 ##
+$(IntermediateDirectory)/src_SplashState.cpp$(ObjectSuffix): src/SplashState.cpp $(IntermediateDirectory)/src_SplashState.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/mustamfst/projects/cpp/lost-dungeon/src/SplashState.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_SplashState.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_SplashState.cpp$(DependSuffix): src/SplashState.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_SplashState.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_SplashState.cpp$(DependSuffix) -MM src/SplashState.cpp
+
+$(IntermediateDirectory)/src_SplashState.cpp$(PreprocessSuffix): src/SplashState.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_SplashState.cpp$(PreprocessSuffix) src/SplashState.cpp
+
 $(IntermediateDirectory)/src_main.cpp$(ObjectSuffix): src/main.cpp $(IntermediateDirectory)/src_main.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/mustamfst/projects/cpp/lost-dungeon/src/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_main.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/src_main.cpp$(DependSuffix): src/main.cpp

@@ -5,6 +5,7 @@
 
 namespace ld
 {
+	typedef std::unique_ptr<GameState> GameStateRef;
 	class StateMachine
 	{
 	private:

@@ -6,6 +6,8 @@
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="src">
+    <File Name="src/SplashState.cpp"/>
+    <File Name="src/SplashState.hpp"/>
     <File Name="src/StateMachine.cpp"/>
     <File Name="src/StateMachine.hpp"/>
     <File Name="src/GameState.cpp"/>
