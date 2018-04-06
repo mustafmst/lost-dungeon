@@ -6,6 +6,8 @@
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="src">
+    <File Name="src/MainMenu.cpp"/>
+    <File Name="src/MainMenu.hpp"/>
     <File Name="src/AssetManager.cpp"/>
     <File Name="src/AssetManager.hpp"/>
     <File Name="src/SplashState.cpp"/>

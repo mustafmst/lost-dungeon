@@ -10,6 +10,8 @@
 #define SPLASH_BACKGROUND_NAME "SplashBackground"
 
 //main menu
+#define FONT_NAME "MainFont"
+#define FONT_FILEPATH "./assets/fonts/st.ttf"
 
 //pause
 

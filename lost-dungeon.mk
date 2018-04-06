@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/src_SplashState.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_main.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_StateMachine.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_InputManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_AssetManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_GameState.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/src_MainMenu.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_SplashState.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_main.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_StateMachine.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_InputManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_AssetManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_GameState.cpp$(ObjectSuffix) 
 
 
 
@@ -96,6 +96,14 @@ PreBuild:
 ##
 ## Objects
 ##
+$(IntermediateDirectory)/src_MainMenu.cpp$(ObjectSuffix): src/MainMenu.cpp $(IntermediateDirectory)/src_MainMenu.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/mustamfst/projects/cpp/lost-dungeon/src/MainMenu.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_MainMenu.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_MainMenu.cpp$(DependSuffix): src/MainMenu.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_MainMenu.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_MainMenu.cpp$(DependSuffix) -MM src/MainMenu.cpp
+
+$(IntermediateDirectory)/src_MainMenu.cpp$(PreprocessSuffix): src/MainMenu.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_MainMenu.cpp$(PreprocessSuffix) src/MainMenu.cpp
+
 $(IntermediateDirectory)/src_SplashState.cpp$(ObjectSuffix): src/SplashState.cpp $(IntermediateDirectory)/src_SplashState.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/mustamfst/projects/cpp/lost-dungeon/src/SplashState.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_SplashState.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/src_SplashState.cpp$(DependSuffix): src/SplashState.cpp

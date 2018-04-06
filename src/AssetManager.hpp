@@ -9,9 +9,13 @@ namespace ld
 	{
 	private:
 		std::map<std::string, sf::Texture> _textures;
+		std::map<std::string, sf::Font> _fonts;
 	public:
 		void LoadTexture(std::string name, std::string filePath);
 		sf::Texture & GetTexture(std::string name);
+		
+		void LoatFont(std::string name, std::string filePath);
+		sf::Font & GetFont(std::string name);
 	};
 }
 

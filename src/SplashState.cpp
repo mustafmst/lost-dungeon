@@ -1,6 +1,7 @@
 #include "SplashState.hpp"
 #include <iostream>
 #include "assetsAndDefinitions.h"
+#include "MainMenu.hpp"
 
 void ld::SplashState::Init()
 {
@@ -19,8 +20,7 @@ void ld::SplashState::Update(float delta)
 		_background.setColor(color);
 		if(_background.getColor().a <= 0)
 		{
-			std::cout << "Go to menu!" << std::endl;
-			_data->window.close();
+			_data->stateMachine.AddState(GameStateRef(new MainMenu(_data)));
 		}
 	}
 }
