@@ -6,6 +6,10 @@
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="src">
+    <File Name="src/StateMachine.cpp"/>
+    <File Name="src/StateMachine.hpp"/>
+    <File Name="src/GameState.cpp"/>
+    <File Name="src/GameState.hpp"/>
     <File Name="src/GameData.h"/>
     <File Name="src/InputManager.cpp"/>
     <File Name="src/InputManager.hpp"/>

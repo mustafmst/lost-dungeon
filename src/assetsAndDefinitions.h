@@ -5,3 +5,9 @@
 //splash assets
 #define SPLASH_BACKGROUND_FILEPATH "assets/img/splash-bkg.png"
 #define SPLASH_BACKGROUND_NAME "SplashBackground"
+
+//main menu
+
+//pause
+
+//game
