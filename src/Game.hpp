@@ -2,16 +2,10 @@
 #include <memory>
 #include <string>
 #include <SFML/Graphics.hpp>
+#include "GameData.h"
 
 namespace ld
 {
-	struct GameData
-	{
-		sf::RenderWindow window;
-	};
-	
-	typedef std::shared_ptr<GameData> GameDataRef;
-	
 	class Game
 	{
 	private:

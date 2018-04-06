@@ -6,6 +6,9 @@
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="src">
+    <File Name="src/GameData.h"/>
+    <File Name="src/InputManager.cpp"/>
+    <File Name="src/InputManager.hpp"/>
     <File Name="src/Game.cpp"/>
     <File Name="src/Game.hpp"/>
     <File Name="src/assetsAndDefinitions.h"/>

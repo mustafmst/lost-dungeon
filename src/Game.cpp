@@ -17,12 +17,7 @@ namespace ld
 		float delta = _clock.restart().asSeconds();
 		while(_data->window.isOpen())
 		{
-			sf::Event event;
-			while(_data->window.pollEvent(event))
-			{
-				if(event.type == sf::Event::Closed) _data->window.close();
-			}
-			
+			_data->input.HandleBasicInputs(_data->window);
 			
 			delta = _clock.restart().asSeconds();
 		}
