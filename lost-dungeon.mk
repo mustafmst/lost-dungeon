@@ -39,8 +39,8 @@ LinkOptions            :=
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). 
 IncludePCH             := 
 RcIncludePath          := 
-Libs                   := 
-ArLibs                 :=  
+Libs                   := $(LibrarySwitch)sfml-system $(LibrarySwitch)sfml-graphics $(LibrarySwitch)sfml-window 
+ArLibs                 :=  "sfml-system" "sfml-graphics" "sfml-window" 
 LibPath                := $(LibraryPathSwitch). 
 
 ##
@@ -50,8 +50,8 @@ LibPath                := $(LibraryPathSwitch).
 AR       := /usr/bin/ar rcu
 CXX      := /usr/bin/g++
 CC       := /usr/bin/gcc
-CXXFLAGS :=  -g -O0 -Wall $(Preprocessors)
-CFLAGS   :=  -g -O0 -Wall $(Preprocessors)
+CXXFLAGS :=  -g -O0 -std=c++14 -std=c++11 -Wall $(Preprocessors)
+CFLAGS   :=  -g -O0 -std=c++14 -std=c++11 -Wall $(Preprocessors)
 ASFLAGS  := 
 AS       := /usr/bin/as
 

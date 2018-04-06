@@ -1,18 +1,28 @@
 #pragma once
 #include <memory>
 #include <string>
+#include <SFML/Graphics.hpp>
 
 namespace ld
 {
-
-class Game
-{
-private:
-	int width, height;
-	std::string title;
-public:
-	Game(int width, int height, std::string title);
-};
+	struct GameData
+	{
+		sf::RenderWindow window;
+	};
+	
+	typedef std::shared_ptr<GameData> GameDataRef;
+	
+	class Game
+	{
+	private:
+		int _width, _height;
+		std::string _title;
+		GameDataRef _data;
+		
+		void Run();
+	public:
+		Game(int width, int height, std::string title);
+	};
 
 }
 
