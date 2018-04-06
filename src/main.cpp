@@ -1,7 +1,7 @@
-#include <stdio.h>
+#include "assetsAndDefinitions.h"
+#include "Game.hpp"
 
 int main(int argc, char **argv)
 {
-	printf("hello world\n");
-	return 0;
+	ld::Game game(SCREEN_WIDTH, SCREEN_HEIGTH, GAME_TITLE);
 }
