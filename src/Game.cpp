@@ -1,5 +1,6 @@
 #include "Game.hpp"
 #include "SplashState.hpp"
+#include "assetsAndDefinitions.h"
 
 namespace ld
 {

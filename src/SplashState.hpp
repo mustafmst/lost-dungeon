@@ -9,7 +9,7 @@ namespace ld
 	{
 	private:
 		GameDataRef _data;
-		
+		float _elapsedTime;
 		sf::Sprite _background;
 	public:
 		SplashState(GameDataRef data): _data(data) {}
