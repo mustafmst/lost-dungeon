@@ -10,6 +10,7 @@ namespace ld
 		_data(new GameData)
 	{
 		_data->window.create(sf::VideoMode(_width, _height), _title);
+		_data->window.setFramerateLimit(FRAME_RATE);
 		_data->stateMachine.AddState(GameStateRef(new SplashState(_data)));
 		Run();
 	}

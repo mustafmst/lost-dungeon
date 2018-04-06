@@ -9,6 +9,7 @@ void ld::StateMachine::HandleStateChanges()
 			_states.pop();
 		}
 		_states.push(std::move(_newState));
+		_states.top()->Init();
 	} else if(_isRemoving && !_states.empty())
 	{
 		_states.pop();

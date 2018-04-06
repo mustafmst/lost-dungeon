@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include "GameState.hpp"
 #include "GameData.h"
 
@@ -8,6 +9,8 @@ namespace ld
 	{
 	private:
 		GameDataRef _data;
+		
+		sf::Sprite _background;
 	public:
 		SplashState(GameDataRef data): _data(data) {}
 		void Init();

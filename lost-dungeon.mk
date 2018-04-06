@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/src_SplashState.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_main.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_StateMachine.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_InputManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_GameState.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/src_SplashState.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_main.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_StateMachine.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_InputManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_AssetManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_GameState.cpp$(ObjectSuffix) 
 
 
 
@@ -135,6 +135,14 @@ $(IntermediateDirectory)/src_InputManager.cpp$(DependSuffix): src/InputManager.c
 
 $(IntermediateDirectory)/src_InputManager.cpp$(PreprocessSuffix): src/InputManager.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_InputManager.cpp$(PreprocessSuffix) src/InputManager.cpp
+
+$(IntermediateDirectory)/src_AssetManager.cpp$(ObjectSuffix): src/AssetManager.cpp $(IntermediateDirectory)/src_AssetManager.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/mustamfst/projects/cpp/lost-dungeon/src/AssetManager.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_AssetManager.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_AssetManager.cpp$(DependSuffix): src/AssetManager.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_AssetManager.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_AssetManager.cpp$(DependSuffix) -MM src/AssetManager.cpp
+
+$(IntermediateDirectory)/src_AssetManager.cpp$(PreprocessSuffix): src/AssetManager.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_AssetManager.cpp$(PreprocessSuffix) src/AssetManager.cpp
 
 $(IntermediateDirectory)/src_GameState.cpp$(ObjectSuffix): src/GameState.cpp $(IntermediateDirectory)/src_GameState.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/mustamfst/projects/cpp/lost-dungeon/src/GameState.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_GameState.cpp$(ObjectSuffix) $(IncludePath)

@@ -4,6 +4,7 @@
 #include "GameState.hpp"
 #include "InputManager.hpp"
 #include "StateMachine.hpp"
+#include "AssetManager.hpp"
 
 namespace ld
 {
@@ -12,6 +13,7 @@ namespace ld
 		sf::RenderWindow window;
 		InputManager input;
 		StateMachine stateMachine;
+		AssetManager assets;
 	};
 	
 	typedef std::shared_ptr<GameData> GameDataRef;
