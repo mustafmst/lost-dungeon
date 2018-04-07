@@ -47,7 +47,7 @@ void ld::MainMenu::Update(float delta)
 	}
 	if(_data->input.CheckIfWasClicked(_playButton.getPosition(), _playButton.getGlobalBounds(), _data->window))
 	{
-		_data->stateMachine.AddState(GameStateRef(new PlayState(_data)));
+		_data->stateMachine.AddState(GameStateRef(new PlayState(_data, MAP_FILEPATH)));
 	}
 }
 

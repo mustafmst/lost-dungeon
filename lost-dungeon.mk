@@ -39,8 +39,8 @@ LinkOptions            :=
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). 
 IncludePCH             := 
 RcIncludePath          := 
-Libs                   := $(LibrarySwitch)sfml-system $(LibrarySwitch)sfml-graphics $(LibrarySwitch)sfml-window 
-ArLibs                 :=  "sfml-system" "sfml-graphics" "sfml-window" 
+Libs                   := $(LibrarySwitch)sfml-system $(LibrarySwitch)sfml-graphics $(LibrarySwitch)sfml-window $(LibrarySwitch)STP 
+ArLibs                 :=  "sfml-system" "sfml-graphics" "sfml-window" "libSTP" 
 LibPath                := $(LibraryPathSwitch). 
 
 ##

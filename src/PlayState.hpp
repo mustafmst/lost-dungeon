@@ -3,6 +3,7 @@
 #include <memory>
 #include "GameData.h"
 #include "GameState.hpp"
+#include <STP/TMXLoader.hpp>
 
 namespace ld
 {
@@ -11,11 +12,12 @@ namespace ld
 	{
 	private:
 		GameDataRef _data;
-		std::vector<sf::CircleShape*> _objects;
+		sf::Sprite _player;
 		
+		tmx::TileMap _map;
 		void HandleInputs();
 	public:
-		PlayState(GameDataRef data): _data(data) {}
+		PlayState(GameDataRef data, std::string mapFilePath): _data(data), _map(mapFilePath) {}
 		void Init();
 		void Update(float delta);
 		void Draw();
