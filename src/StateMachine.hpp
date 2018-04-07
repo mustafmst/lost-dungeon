@@ -13,7 +13,7 @@ namespace ld
 		GameStateRef _newState;
 		bool _isAdding, _isReplacing, _isRemoving;
 	public:
-		StateMachine() {}
+		StateMachine(): _states() {}
 		~StateMachine() {}
 		void HandleStateChanges();
 		void AddState(GameStateRef state, bool isReplacing = false);

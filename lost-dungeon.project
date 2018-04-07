@@ -6,6 +6,8 @@
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="src">
+    <File Name="src/PlayState.cpp"/>
+    <File Name="src/PlayState.hpp"/>
     <File Name="src/MainMenu.cpp"/>
     <File Name="src/MainMenu.hpp"/>
     <File Name="src/AssetManager.cpp"/>

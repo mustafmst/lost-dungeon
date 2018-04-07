@@ -13,9 +13,9 @@ namespace ld
 		std::string _title;
 		GameDataRef _data;
 		sf::Clock _clock;
-		void Run();
 	public:
 		Game(int width, int height, std::string title);
+		void Run();
 	};
 
 }

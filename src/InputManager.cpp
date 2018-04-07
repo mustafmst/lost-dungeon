@@ -31,3 +31,8 @@ bool ld::InputManager::CheckIfWasClicked(const sf::Vector2f pos, sf::FloatRect b
 	}
 	return false;
 }
+
+bool ld::InputManager::CheckIfKeyIsPressed(sf::Keyboard::Key key)
+{
+	return sf::Keyboard::isKeyPressed(key);
+}

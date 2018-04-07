@@ -1,5 +1,7 @@
 #include "MainMenu.hpp"
 #include "assetsAndDefinitions.h"
+#include <iostream>
+#include "PlayState.hpp"
 
 void ld::MainMenu::Init()
 {
@@ -42,6 +44,10 @@ void ld::MainMenu::Update(float delta)
 	if(_data->input.CheckIfWasClicked(_exitButton.getPosition(), _exitButton.getGlobalBounds(), _data->window))
 	{
 		_data->window.close();
+	}
+	if(_data->input.CheckIfWasClicked(_playButton.getPosition(), _playButton.getGlobalBounds(), _data->window))
+	{
+		_data->stateMachine.AddState(GameStateRef(new PlayState(_data)));
 	}
 }
 

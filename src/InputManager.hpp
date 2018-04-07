@@ -13,6 +13,7 @@ namespace ld
 		void HandleBasicInputs(sf::RenderWindow & window);
 		bool CheckIfMouseIsHovering(const sf::Vector2f pos, sf::FloatRect bounds, sf::RenderWindow & window);
 		bool CheckIfWasClicked(const sf::Vector2f pos, sf::FloatRect bounds, sf::RenderWindow & window);
+		bool CheckIfKeyIsPressed(sf::Keyboard::Key key);
 	};
 }
 
