@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Paweł Mstowski
-Date                   :=07/04/18
+Date                   :=11/04/18
 CodeLitePath           :=/home/pawel/.codelite
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -39,8 +39,8 @@ LinkOptions            :=
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). 
 IncludePCH             := 
 RcIncludePath          := 
-Libs                   := $(LibrarySwitch)sfml-system $(LibrarySwitch)sfml-graphics $(LibrarySwitch)sfml-window $(LibrarySwitch)STP 
-ArLibs                 :=  "sfml-system" "sfml-graphics" "sfml-window" "libSTP" 
+Libs                   := $(LibrarySwitch)sfml-system $(LibrarySwitch)sfml-graphics $(LibrarySwitch)sfml-window $(LibrarySwitch)STP $(LibrarySwitch)Box2D 
+ArLibs                 :=  "sfml-system" "sfml-graphics" "sfml-window" "libSTP" "libBox2D" 
 LibPath                := $(LibraryPathSwitch). 
 
 ##
@@ -60,7 +60,8 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/src_PlayState.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_MainMenu.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_SplashState.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_StateMachine.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_main.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_AssetManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_GameState.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_InputManager.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/src_SplashState.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_PlayState.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_InputManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_AssetManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_main.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_MainMenu.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_Player.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_Map.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_StateMachine.cpp$(ObjectSuffix) \
+	
 
 
 
@@ -96,30 +97,6 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/src_PlayState.cpp$(ObjectSuffix): src/PlayState.cpp $(IntermediateDirectory)/src_PlayState.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/PlayState.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_PlayState.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/src_PlayState.cpp$(DependSuffix): src/PlayState.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_PlayState.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_PlayState.cpp$(DependSuffix) -MM src/PlayState.cpp
-
-$(IntermediateDirectory)/src_PlayState.cpp$(PreprocessSuffix): src/PlayState.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_PlayState.cpp$(PreprocessSuffix) src/PlayState.cpp
-
-$(IntermediateDirectory)/src_Game.cpp$(ObjectSuffix): src/Game.cpp $(IntermediateDirectory)/src_Game.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/Game.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_Game.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/src_Game.cpp$(DependSuffix): src/Game.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_Game.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_Game.cpp$(DependSuffix) -MM src/Game.cpp
-
-$(IntermediateDirectory)/src_Game.cpp$(PreprocessSuffix): src/Game.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_Game.cpp$(PreprocessSuffix) src/Game.cpp
-
-$(IntermediateDirectory)/src_MainMenu.cpp$(ObjectSuffix): src/MainMenu.cpp $(IntermediateDirectory)/src_MainMenu.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/MainMenu.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_MainMenu.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/src_MainMenu.cpp$(DependSuffix): src/MainMenu.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_MainMenu.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_MainMenu.cpp$(DependSuffix) -MM src/MainMenu.cpp
-
-$(IntermediateDirectory)/src_MainMenu.cpp$(PreprocessSuffix): src/MainMenu.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_MainMenu.cpp$(PreprocessSuffix) src/MainMenu.cpp
-
 $(IntermediateDirectory)/src_SplashState.cpp$(ObjectSuffix): src/SplashState.cpp $(IntermediateDirectory)/src_SplashState.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/SplashState.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_SplashState.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/src_SplashState.cpp$(DependSuffix): src/SplashState.cpp
@@ -128,21 +105,21 @@ $(IntermediateDirectory)/src_SplashState.cpp$(DependSuffix): src/SplashState.cpp
 $(IntermediateDirectory)/src_SplashState.cpp$(PreprocessSuffix): src/SplashState.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_SplashState.cpp$(PreprocessSuffix) src/SplashState.cpp
 
-$(IntermediateDirectory)/src_StateMachine.cpp$(ObjectSuffix): src/StateMachine.cpp $(IntermediateDirectory)/src_StateMachine.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/StateMachine.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_StateMachine.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/src_StateMachine.cpp$(DependSuffix): src/StateMachine.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_StateMachine.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_StateMachine.cpp$(DependSuffix) -MM src/StateMachine.cpp
+$(IntermediateDirectory)/src_PlayState.cpp$(ObjectSuffix): src/PlayState.cpp $(IntermediateDirectory)/src_PlayState.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/PlayState.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_PlayState.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_PlayState.cpp$(DependSuffix): src/PlayState.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_PlayState.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_PlayState.cpp$(DependSuffix) -MM src/PlayState.cpp
 
-$(IntermediateDirectory)/src_StateMachine.cpp$(PreprocessSuffix): src/StateMachine.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_StateMachine.cpp$(PreprocessSuffix) src/StateMachine.cpp
+$(IntermediateDirectory)/src_PlayState.cpp$(PreprocessSuffix): src/PlayState.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_PlayState.cpp$(PreprocessSuffix) src/PlayState.cpp
 
-$(IntermediateDirectory)/src_main.cpp$(ObjectSuffix): src/main.cpp $(IntermediateDirectory)/src_main.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_main.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/src_main.cpp$(DependSuffix): src/main.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_main.cpp$(DependSuffix) -MM src/main.cpp
+$(IntermediateDirectory)/src_InputManager.cpp$(ObjectSuffix): src/InputManager.cpp $(IntermediateDirectory)/src_InputManager.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/InputManager.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_InputManager.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_InputManager.cpp$(DependSuffix): src/InputManager.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_InputManager.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_InputManager.cpp$(DependSuffix) -MM src/InputManager.cpp
 
-$(IntermediateDirectory)/src_main.cpp$(PreprocessSuffix): src/main.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_main.cpp$(PreprocessSuffix) src/main.cpp
+$(IntermediateDirectory)/src_InputManager.cpp$(PreprocessSuffix): src/InputManager.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_InputManager.cpp$(PreprocessSuffix) src/InputManager.cpp
 
 $(IntermediateDirectory)/src_AssetManager.cpp$(ObjectSuffix): src/AssetManager.cpp $(IntermediateDirectory)/src_AssetManager.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/AssetManager.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_AssetManager.cpp$(ObjectSuffix) $(IncludePath)
@@ -152,21 +129,53 @@ $(IntermediateDirectory)/src_AssetManager.cpp$(DependSuffix): src/AssetManager.c
 $(IntermediateDirectory)/src_AssetManager.cpp$(PreprocessSuffix): src/AssetManager.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_AssetManager.cpp$(PreprocessSuffix) src/AssetManager.cpp
 
-$(IntermediateDirectory)/src_GameState.cpp$(ObjectSuffix): src/GameState.cpp $(IntermediateDirectory)/src_GameState.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/GameState.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_GameState.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/src_GameState.cpp$(DependSuffix): src/GameState.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_GameState.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_GameState.cpp$(DependSuffix) -MM src/GameState.cpp
+$(IntermediateDirectory)/src_main.cpp$(ObjectSuffix): src/main.cpp $(IntermediateDirectory)/src_main.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_main.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_main.cpp$(DependSuffix): src/main.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_main.cpp$(DependSuffix) -MM src/main.cpp
 
-$(IntermediateDirectory)/src_GameState.cpp$(PreprocessSuffix): src/GameState.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_GameState.cpp$(PreprocessSuffix) src/GameState.cpp
+$(IntermediateDirectory)/src_main.cpp$(PreprocessSuffix): src/main.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_main.cpp$(PreprocessSuffix) src/main.cpp
 
-$(IntermediateDirectory)/src_InputManager.cpp$(ObjectSuffix): src/InputManager.cpp $(IntermediateDirectory)/src_InputManager.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/InputManager.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_InputManager.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/src_InputManager.cpp$(DependSuffix): src/InputManager.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_InputManager.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_InputManager.cpp$(DependSuffix) -MM src/InputManager.cpp
+$(IntermediateDirectory)/src_MainMenu.cpp$(ObjectSuffix): src/MainMenu.cpp $(IntermediateDirectory)/src_MainMenu.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/MainMenu.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_MainMenu.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_MainMenu.cpp$(DependSuffix): src/MainMenu.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_MainMenu.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_MainMenu.cpp$(DependSuffix) -MM src/MainMenu.cpp
 
-$(IntermediateDirectory)/src_InputManager.cpp$(PreprocessSuffix): src/InputManager.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_InputManager.cpp$(PreprocessSuffix) src/InputManager.cpp
+$(IntermediateDirectory)/src_MainMenu.cpp$(PreprocessSuffix): src/MainMenu.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_MainMenu.cpp$(PreprocessSuffix) src/MainMenu.cpp
+
+$(IntermediateDirectory)/src_Player.cpp$(ObjectSuffix): src/Player.cpp $(IntermediateDirectory)/src_Player.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/Player.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_Player.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_Player.cpp$(DependSuffix): src/Player.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_Player.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_Player.cpp$(DependSuffix) -MM src/Player.cpp
+
+$(IntermediateDirectory)/src_Player.cpp$(PreprocessSuffix): src/Player.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_Player.cpp$(PreprocessSuffix) src/Player.cpp
+
+$(IntermediateDirectory)/src_Map.cpp$(ObjectSuffix): src/Map.cpp $(IntermediateDirectory)/src_Map.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/Map.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_Map.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_Map.cpp$(DependSuffix): src/Map.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_Map.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_Map.cpp$(DependSuffix) -MM src/Map.cpp
+
+$(IntermediateDirectory)/src_Map.cpp$(PreprocessSuffix): src/Map.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_Map.cpp$(PreprocessSuffix) src/Map.cpp
+
+$(IntermediateDirectory)/src_Game.cpp$(ObjectSuffix): src/Game.cpp $(IntermediateDirectory)/src_Game.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/Game.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_Game.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_Game.cpp$(DependSuffix): src/Game.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_Game.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_Game.cpp$(DependSuffix) -MM src/Game.cpp
+
+$(IntermediateDirectory)/src_Game.cpp$(PreprocessSuffix): src/Game.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_Game.cpp$(PreprocessSuffix) src/Game.cpp
+
+$(IntermediateDirectory)/src_StateMachine.cpp$(ObjectSuffix): src/StateMachine.cpp $(IntermediateDirectory)/src_StateMachine.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pawel/projects/studia/cpp/lost-dungeon/src/StateMachine.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_StateMachine.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_StateMachine.cpp$(DependSuffix): src/StateMachine.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_StateMachine.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_StateMachine.cpp$(DependSuffix) -MM src/StateMachine.cpp
+
+$(IntermediateDirectory)/src_StateMachine.cpp$(PreprocessSuffix): src/StateMachine.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_StateMachine.cpp$(PreprocessSuffix) src/StateMachine.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

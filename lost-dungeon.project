@@ -6,6 +6,13 @@
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="src">
+    <VirtualDirectory Name="GameObjects">
+      <File Name="src/Map.cpp"/>
+      <File Name="src/Map.hpp"/>
+      <File Name="src/Player.cpp"/>
+      <File Name="src/Player.hpp"/>
+      <File Name="src/GameObject.hpp"/>
+    </VirtualDirectory>
     <File Name="src/PlayState.cpp"/>
     <File Name="src/PlayState.hpp"/>
     <File Name="src/MainMenu.cpp"/>
@@ -16,7 +23,6 @@
     <File Name="src/SplashState.hpp"/>
     <File Name="src/StateMachine.cpp"/>
     <File Name="src/StateMachine.hpp"/>
-    <File Name="src/GameState.cpp"/>
     <File Name="src/GameState.hpp"/>
     <File Name="src/GameData.h"/>
     <File Name="src/InputManager.cpp"/>
@@ -47,6 +53,7 @@
         <Library Value="sfml-graphics"/>
         <Library Value="sfml-window"/>
         <Library Value="libSTP"/>
+        <Library Value="libBox2D"/>
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>

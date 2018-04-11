@@ -16,6 +16,7 @@
 //pause
 
 //game
+#define F_SCALE 20
 #define MAP_FILEPATH "./assets/maps/basic.tmx"
 #define PLAYER_FILEPATH "./assets/img/knight-idle-1.png"
 #define PLAYER_NAME "knight-idle-1"
