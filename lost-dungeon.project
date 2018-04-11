@@ -6,6 +6,26 @@
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="src">
+    <VirtualDirectory Name="Engine">
+      <File Name="src/StateMachine.hpp"/>
+      <File Name="src/StateMachine.cpp"/>
+      <File Name="src/InputManager.hpp"/>
+      <File Name="src/InputManager.cpp"/>
+      <File Name="src/GameData.h"/>
+      <File Name="src/Game.hpp"/>
+      <File Name="src/Game.cpp"/>
+      <File Name="src/AssetManager.hpp"/>
+      <File Name="src/AssetManager.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="States">
+      <File Name="src/SplashState.hpp"/>
+      <File Name="src/SplashState.cpp"/>
+      <File Name="src/PlayState.hpp"/>
+      <File Name="src/PlayState.cpp"/>
+      <File Name="src/MainMenu.hpp"/>
+      <File Name="src/MainMenu.cpp"/>
+      <File Name="src/GameState.hpp"/>
+    </VirtualDirectory>
     <VirtualDirectory Name="GameObjects">
       <File Name="src/Map.cpp"/>
       <File Name="src/Map.hpp"/>
@@ -13,22 +33,6 @@
       <File Name="src/Player.hpp"/>
       <File Name="src/GameObject.hpp"/>
     </VirtualDirectory>
-    <File Name="src/PlayState.cpp"/>
-    <File Name="src/PlayState.hpp"/>
-    <File Name="src/MainMenu.cpp"/>
-    <File Name="src/MainMenu.hpp"/>
-    <File Name="src/AssetManager.cpp"/>
-    <File Name="src/AssetManager.hpp"/>
-    <File Name="src/SplashState.cpp"/>
-    <File Name="src/SplashState.hpp"/>
-    <File Name="src/StateMachine.cpp"/>
-    <File Name="src/StateMachine.hpp"/>
-    <File Name="src/GameState.hpp"/>
-    <File Name="src/GameData.h"/>
-    <File Name="src/InputManager.cpp"/>
-    <File Name="src/InputManager.hpp"/>
-    <File Name="src/Game.cpp"/>
-    <File Name="src/Game.hpp"/>
     <File Name="src/assetsAndDefinitions.h"/>
     <File Name="src/main.cpp"/>
   </VirtualDirectory>

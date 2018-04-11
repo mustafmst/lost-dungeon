@@ -8,17 +8,12 @@ namespace ld
 	class GameObject
 	{
 	public:
-		GameObject()
-		{
-		}
-		~GameObject()
-		{
-		}
+		GameObject() {}
+		~GameObject() {}
 		virtual void Update(float delta) = 0;
 		virtual void Draw(sf::RenderWindow & window) = 0;
 		virtual void InitPhysics(b2World & world) = 0;
 	};
-	
 	typedef std::shared_ptr<GameObject> GameObjectRef;
 }
 
