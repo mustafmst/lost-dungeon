@@ -36,3 +36,7 @@ Release
 \.codelite/refactoring\.db
 
 \.codelite/lost-dungeon\.tags
+
+lost-dungeon\.mk
+
+lost-dungeon\.txt
