@@ -30,3 +30,9 @@
 # Build folders
 Debug
 Release
+
+\.codelite/lost-dungeon\.session
+
+\.codelite/refactoring\.db
+
+\.codelite/lost-dungeon\.tags
