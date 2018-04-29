@@ -24,7 +24,7 @@ void ld::Map::InitPhysics(b2World& world)
 			if(!tile->empty())
 			{
 				b2BodyDef def2;
-				def2.position = b2Vec2((x*16.f-4.f)/F_SCALE, (y*16.f-8.f)/F_SCALE);
+				def2.position = b2Vec2((x*16.f)/F_SCALE, (y*16.f)/F_SCALE);
 				def2.type = b2_staticBody;
 				b2Body* body = std::move(world.CreateBody(&def2));
 				

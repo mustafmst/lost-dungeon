@@ -3,7 +3,7 @@
 
 void ld::Player::Update(float delta)
 {
-	_player.setPosition(_playerBody->GetPosition().x*F_SCALE, _playerBody->GetPosition().y*F_SCALE);
+	_player.setPosition(_playerBody->GetPosition().x*F_SCALE, (_playerBody->GetPosition().y*F_SCALE)-11.f);
 }
 
 void ld::Player::Draw(sf::RenderWindow& window)
@@ -38,7 +38,7 @@ void ld::Player::InitPhysics(b2World& world)
 	box1Fix.shape = &box1;
 	box1Fix.density = 1;
 	_playerBody->CreateFixture(&box1Fix);
-	_playerBody->SetLinearVelocity(b2Vec2(50,0));
+	//_playerBody->SetLinearVelocity(b2Vec2(50,0));
 	
 	//Floor for test purposes
 	/*
@@ -58,5 +58,5 @@ void ld::Player::InitPhysics(b2World& world)
 void ld::Player::Init(sf::Texture& texture)
 {
 	_player.setTexture(texture);
-	_player.setPosition( (SCREEN_WIDTH/2) - (_player.getGlobalBounds().width/2), 200 );
+	_player.setPosition( (SCREEN_WIDTH/2) - (_player.getGlobalBounds().width/2)- 10, 200 );
 }
