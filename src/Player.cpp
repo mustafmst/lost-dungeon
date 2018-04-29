@@ -40,22 +40,7 @@ void ld::Player::InitPhysics(b2World& world)
 	box1Fix.shape = &box1;
 	box1Fix.density = 1;
 	_playerBody->CreateFixture(&box1Fix);
-	//_playerBody->SetLinearVelocity(b2Vec2(50,0));
-	
-	//Floor for test purposes
-	/*
-	b2BodyDef def2;
-	def2.position = b2Vec2(400.f/F_SCALE, (32.f*16.f+8.f)/F_SCALE);
-	def2.type = b2_staticBody; //b2_kinematicBody;
-	b2Body* body = std::move(world.CreateBody(&def2));
-	
-	b2PolygonShape box2;
-	box2.SetAsBox(400/F_SCALE,8.f/F_SCALE);
-	b2FixtureDef box2Fix;
-	box2Fix.shape = &box2;
-	box2Fix.density = 1;
-	body->CreateFixture(&box2Fix);
-	*/
+	_playerBody->SetFixedRotation(true);
 }
 void ld::Player::Init(sf::Texture& texture)
 {
