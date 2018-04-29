@@ -24,6 +24,29 @@ void ld::PlayState::Draw()
 	_data->window.clear();
 	for(auto o : _gameObjects)
 		o->Draw(_data->window);
+	if(DEBUG)
+	{
+		//map debug
+		sf::RectangleShape rec;
+		rec.setFillColor(sf::Color(0,0,0,0));
+		rec.setOutlineThickness(1);
+		rec.setOutlineColor(sf::Color::Cyan);
+		for(b2Body* b = _world.GetBodyList(); b; b = b->GetNext())
+		{
+			if(b->GetType()==b2_staticBody)
+			{
+				rec.setSize(sf::Vector2f(16.f, 16.f));
+				rec.setPosition(b->GetPosition().x*F_SCALE, b->GetPosition().y*F_SCALE);
+			}
+			else if(b->GetType()==b2_dynamicBody)
+			{
+				rec.setSize(sf::Vector2f(16.f, 34.f));
+				rec.setPosition(b->GetPosition().x*F_SCALE, (b->GetPosition().y*F_SCALE)-11.f);
+			}
+			
+			_data->window.draw(rec);
+		}
+	}
 	_data->window.display();  
 }
 
