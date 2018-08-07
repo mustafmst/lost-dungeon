@@ -1,5 +1,5 @@
 #pragma once
-#define DEBUG false
+#define DEBUG true
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGTH 600
 #define FRAME_RATE 60.f

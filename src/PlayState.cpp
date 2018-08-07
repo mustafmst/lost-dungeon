@@ -61,7 +61,7 @@ void ld::PlayState::HandleInputs()
 void ld::PlayState::InitPlayer()
 {
 	_data->assets.LoadTexture(PLAYER_NAME, PLAYER_FILEPATH);
-	Player player;
+	Player player(_data->input);
 	player.Init(_data->assets.GetTexture(PLAYER_NAME));
 	player.InitPhysics(_world);
 	_gameObjects.push_back(GameObjectRef(new Player(player)));

@@ -1,4 +1,5 @@
 #include "Player.hpp"
+#include "MoveState.h"
 #include "assetsAndDefinitions.h"
 #include <iostream>
 
@@ -12,6 +13,7 @@ void ld::Player::HandleInputs()
 
 void ld::Player::Update(float delta)
 {
+	HandleMovement();
 	_player.setPosition(_playerBody->GetPosition().x*F_SCALE, (_playerBody->GetPosition().y*F_SCALE)-11.f);
 	HandleInputs();
 }
@@ -34,9 +36,42 @@ void ld::Player::InitPhysics(b2World& world)
 	box1Fix.shape = &box1;
 	box1Fix.density = 1;
 	_playerBody->CreateFixture(&box1Fix);
+	_playerBody->SetFixedRotation(true);
 }
 void ld::Player::Init(sf::Texture& texture)
 {
 	_player.setTexture(texture);
 	_player.setPosition( (SCREEN_WIDTH/2) - (_player.getGlobalBounds().width/2)- 10, 200 );
+}
+void ld::Player::HandleMovement()
+{
+	MoveState moveState = STOP;
+	int moveDirection = 0;
+	b2Vec2 vel = _playerBody->GetLinearVelocity();
+	if(_input.CheckIfKeyIsPressed(sf::Keyboard::Right))
+		moveDirection += 1;
+	if(_input.CheckIfKeyIsPressed(sf::Keyboard::Left))
+		moveDirection-=1;
+	if(_input.CheckIfKeyIsPressed(sf::Keyboard::Space))
+	{
+		vel.y = -10;
+	}
+	switch(moveDirection)
+	{
+		case 1:
+			moveState = RIGHT;
+			//_player.setScale()
+			break;
+		case -1:
+			moveState = LEFT;
+			break;
+		default: break;
+	}
+	switch ( moveState )
+	{
+		case LEFT:  vel.x = -5; break;
+		case STOP:  vel.x =  0; break;
+		case RIGHT: vel.x =  5; break;
+	}
+	_playerBody->SetLinearVelocity( vel );
 }
