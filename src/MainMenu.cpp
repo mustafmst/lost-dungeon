@@ -1,6 +1,5 @@
 #include "MainMenu.hpp"
 #include "assetsAndDefinitions.h"
-#include <iostream>
 #include "PlayState.hpp"
 
 void ld::MainMenu::Init()

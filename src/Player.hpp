@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.hpp"
+#include "InputManager.hpp"
 
 namespace ld
 {
@@ -8,6 +9,9 @@ namespace ld
 	private:
 		sf::Sprite _player;
 		b2Body* _playerBody;
+		InputManager _input;
+		
+		void HandleInputs();
 	public:
 		Player() {}
 		~Player() {}

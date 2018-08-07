@@ -29,13 +29,12 @@ namespace ld
 		float delta = 0.f; //_clock.restart().asSeconds();
 		while(_data->window.isOpen())
 		{
+			delta = _clock.restart().asSeconds();
 			_data->input.HandleBasicInputs(_data->window);
 			_data->stateMachine.HandleStateChanges();
 			
 			_data->stateMachine.CurrentState()->Update(delta);
 			_data->stateMachine.CurrentState()->Draw();
-			
-			delta = _clock.restart().asSeconds();
 		}
 	}
 }
