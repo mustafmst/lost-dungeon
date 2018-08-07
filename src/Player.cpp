@@ -3,19 +3,10 @@
 #include "assetsAndDefinitions.h"
 #include <iostream>
 
-void ld::Player::HandleInputs()
-{
-	if(_input.CheckIfKeyIsPressed(sf::Keyboard::Space))
-	{
-		std::cout << "SPACE!!!" << std::endl;
-	}
-}
-
 void ld::Player::Update(float delta)
 {
 	HandleMovement();
 	_player.setPosition(_playerBody->GetPosition().x*F_SCALE, (_playerBody->GetPosition().y*F_SCALE)-11.f);
-	HandleInputs();
 }
 
 void ld::Player::Draw(sf::RenderWindow& window)
