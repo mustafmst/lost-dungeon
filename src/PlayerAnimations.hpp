@@ -13,7 +13,7 @@ class PlayerAnimations
 	AnimatedSpriteRef _animatedSprite;
 public:
 	PlayerAnimations();
-	sf::Drawable& GetDrawable();
+	void Draw(sf::RenderWindow& window);
 };
 
 }

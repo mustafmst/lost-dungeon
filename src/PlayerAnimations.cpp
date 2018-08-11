@@ -4,8 +4,7 @@ ld::PlayerAnimations::PlayerAnimations()
 {
 	_animatedSprite = AnimatedSpriteRef(new AnimatedSprite());
 }
-
-sf::Drawable& ld::PlayerAnimations::GetDrawable()
+void ld::PlayerAnimations::Draw(sf::RenderWindow& window)
 {
-	return _animatedSprite;
+	window.draw((AnimatedSprite) *_animatedSprite.get());
 }
