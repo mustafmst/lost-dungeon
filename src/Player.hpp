@@ -11,6 +11,10 @@ namespace ld
 		sf::Sprite _player;
 		b2Body* _playerBody;
 		InputManager& _input;
+		bool _isFacigRight = true;
+		
+		bool IsOnGround();
+		void SetSpriteDirection();
 	public:
 		Player(InputManager& input): _input(input) {}
 		~Player() {}

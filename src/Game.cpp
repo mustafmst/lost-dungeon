@@ -26,7 +26,7 @@ namespace ld
 	
 	void Game::Run()
 	{
-		float delta = 0.f; //_clock.restart().asSeconds();
+		float delta = 0.f;
 		while(_data->window.isOpen())
 		{
 			delta = _clock.restart().asSeconds();

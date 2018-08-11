@@ -6,7 +6,10 @@
 void ld::Player::Update(float delta)
 {
 	HandleMovement();
-	_player.setPosition(_playerBody->GetPosition().x*F_SCALE, (_playerBody->GetPosition().y*F_SCALE)-11.f);
+	_player.setPosition(
+		_playerBody->GetPosition().x*F_SCALE,
+		(_playerBody->GetPosition().y*F_SCALE)-11.f
+	);
 }
 
 void ld::Player::Draw(sf::RenderWindow& window)
@@ -17,7 +20,10 @@ void ld::Player::Draw(sf::RenderWindow& window)
 void ld::Player::InitPhysics(b2World& world)
 {
 	b2BodyDef def;
-	def.position = b2Vec2(_player.getPosition().x/F_SCALE, _player.getPosition().y/F_SCALE);
+	def.position = b2Vec2(
+		_player.getPosition().x/F_SCALE,
+		_player.getPosition().y/F_SCALE
+	);
 	def.type = b2_dynamicBody;
 	_playerBody = std::move(world.CreateBody(&def));
 	
@@ -32,8 +38,19 @@ void ld::Player::InitPhysics(b2World& world)
 void ld::Player::Init(sf::Texture& texture)
 {
 	_player.setTexture(texture);
-	_player.setPosition( (SCREEN_WIDTH/2) - (_player.getGlobalBounds().width/2)- 10, 200 );
+	_player.setPosition(
+		(SCREEN_WIDTH/2) - (_player.getGlobalBounds().width/2)- 10,
+		200
+	);
 }
+
+bool ld::Player::IsOnGround()
+{
+	const float velocityBorders = 0.001f;
+	const float current = _playerBody->GetLinearVelocity().y;
+	return  current > -velocityBorders && current < velocityBorders;
+}
+
 void ld::Player::HandleMovement()
 {
 	MoveState moveState = STOP;
@@ -43,7 +60,7 @@ void ld::Player::HandleMovement()
 		moveDirection += 1;
 	if(_input.CheckIfKeyIsPressed(sf::Keyboard::Left))
 		moveDirection-=1;
-	if(_input.CheckIfKeyIsPressed(sf::Keyboard::Space))
+	if(_input.CheckIfKeyIsPressed(sf::Keyboard::Space) && IsOnGround())
 	{
 		vel.y = -10;
 	}
@@ -51,7 +68,6 @@ void ld::Player::HandleMovement()
 	{
 		case 1:
 			moveState = RIGHT;
-			//_player.setScale()
 			break;
 		case -1:
 			moveState = LEFT;
@@ -65,4 +81,34 @@ void ld::Player::HandleMovement()
 		case RIGHT: vel.x =  5; break;
 	}
 	_playerBody->SetLinearVelocity( vel );
+	SetSpriteDirection();
+}
+
+void ld::Player::SetSpriteDirection()
+{
+	const float xMovingSpeed = _playerBody->GetLinearVelocity().x;
+	if(xMovingSpeed == 0) return;
+	const bool currentFacing = xMovingSpeed >= 0;
+	if(currentFacing != _isFacigRight)
+	{
+		_isFacigRight = currentFacing;
+		auto currentRect = _player.getTextureRect();
+		if(!_isFacigRight)
+		{
+			_player.setTextureRect(
+				sf::IntRect(
+					currentRect.width, 0, 
+					-currentRect.width, currentRect.height
+				)
+			);
+		} else 
+		{
+			_player.setTextureRect(
+				sf::IntRect(
+					0, 0, 
+					-currentRect.width, currentRect.height
+				)
+			);
+		}
+	}
 }

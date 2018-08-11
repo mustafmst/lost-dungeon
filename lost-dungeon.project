@@ -7,6 +7,12 @@
   </Plugins>
   <VirtualDirectory Name="src">
     <VirtualDirectory Name="Engine">
+      <VirtualDirectory Name="Animations">
+        <File Name="src/AnimatedSprite.cpp"/>
+        <File Name="src/AnimatedSprite.hpp"/>
+        <File Name="src/Animation.cpp"/>
+        <File Name="src/Animation.hpp"/>
+      </VirtualDirectory>
       <File Name="src/StateMachine.hpp"/>
       <File Name="src/StateMachine.cpp"/>
       <File Name="src/InputManager.hpp"/>
@@ -27,13 +33,18 @@
       <File Name="src/GameState.hpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="GameObjects">
+      <VirtualDirectory Name="Map">
+        <File Name="src/Map.hpp"/>
+        <File Name="src/Map.cpp"/>
+      </VirtualDirectory>
       <VirtualDirectory Name="Player">
+        <File Name="src/PlayerAnimations.cpp"/>
+        <File Name="src/PlayerAnimations.hpp"/>
+        <File Name="src/knightAnimations.h"/>
         <File Name="src/MoveState.h"/>
         <File Name="src/Player.hpp"/>
         <File Name="src/Player.cpp"/>
       </VirtualDirectory>
-      <File Name="src/Map.cpp"/>
-      <File Name="src/Map.hpp"/>
       <File Name="src/GameObject.hpp"/>
     </VirtualDirectory>
     <File Name="src/assetsAndDefinitions.h"/>
