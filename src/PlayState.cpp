@@ -9,6 +9,7 @@ void ld::PlayState::Init()
 	// Remember to init map first
 	InitMap(_mapName);
 	InitPlayer();
+	InitCamera();
 }
 
 void ld::PlayState::Update(float delta)
@@ -22,6 +23,7 @@ void ld::PlayState::Update(float delta)
 void ld::PlayState::Draw()
 {
 	_data->window.clear();
+	UpdateCamera();
 	for(auto o : _gameObjects)
 		o->Draw(_data->window);
 	if(DEBUG)
@@ -47,6 +49,11 @@ void ld::PlayState::Draw()
 			_data->window.draw(rec);
 		}
 	}
+	_data->window.setView(_data->window.getDefaultView());
+	auto rect = sf::RectangleShape(sf::Vector2f(100.f,20.f));
+	rect.setFillColor(sf::Color::Red);
+	rect.setPosition(10,10);
+	_data->window.draw(rect);
 	_data->window.display();  
 }
 
@@ -64,7 +71,8 @@ void ld::PlayState::InitPlayer()
 	Player player(_data->input);
 	player.Init(_data->assets.GetTexture(PLAYER_NAME));
 	player.InitPhysics(_world);
-	_gameObjects.push_back(GameObjectRef(new Player(player)));
+	_player = std::make_shared<Player>(player);
+	_gameObjects.push_back(_player);
 }
 
 void ld::PlayState::InitMap(std::string mapFilePath)
@@ -72,4 +80,18 @@ void ld::PlayState::InitMap(std::string mapFilePath)
 	_map.Init(mapFilePath);
 	_map.InitPhysics(_world);
 	_gameObjects.push_back(GameObjectRef(new Map(_map)));
+}
+void ld::PlayState::UpdateCamera()
+{
+	auto r = _player->GetPosition()-_camera->getCenter();
+	_camera->move(r.x/CAMERA_DELAY, r.y/CAMERA_DELAY);
+	_data->window.setView(*_camera);
+}
+void ld::PlayState::InitCamera()
+{
+	
+	_camera = std::unique_ptr<sf::View>(new sf::View);
+	_camera->setCenter(_player->GetPosition());
+	_camera->setSize(SCREEN_WIDTH/CAMERA_SCALE,SCREEN_HEIGTH/CAMERA_SCALE);
+	_data->window.setView(*_camera.get());
 }

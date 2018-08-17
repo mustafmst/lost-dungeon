@@ -2,6 +2,8 @@
 #define DEBUG true
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGTH 600
+#define CAMERA_SCALE 2.5
+#define CAMERA_DELAY 10
 #define FRAME_RATE 60.f
 #define GAME_TITLE "Lost Dungeon"
 

@@ -15,12 +15,16 @@ namespace ld
 	private:
 		GameDataRef _data;
 		b2World _world;
+		std::shared_ptr<Player> _player;
 		std::vector<GameObjectRef> _gameObjects;
 		Map _map;
 		std::string _mapName;
+		std::unique_ptr<sf::View> _camera;
 		void HandleInputs();
 		void InitPlayer();
 		void InitMap(std::string mapFilePath);
+		void InitCamera();
+		void UpdateCamera();
 	public:
 		PlayState(GameDataRef data, std::string mapFilePath): _data(data), _mapName(mapFilePath), _world(b2Vec2(0.f,9.8f)) {}
 		void Init();

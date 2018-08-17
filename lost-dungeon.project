@@ -33,6 +33,10 @@
       <File Name="src/GameState.hpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="GameObjects">
+      <VirtualDirectory Name="HUD">
+        <File Name="src/HUD.cpp"/>
+        <File Name="src/HUD.hpp"/>
+      </VirtualDirectory>
       <VirtualDirectory Name="Map">
         <File Name="src/Map.hpp"/>
         <File Name="src/Map.cpp"/>

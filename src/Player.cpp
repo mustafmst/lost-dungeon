@@ -112,3 +112,8 @@ void ld::Player::SetSpriteDirection()
 		}
 	}
 }
+
+sf::Vector2f ld::Player::GetPosition()
+{
+	return _player.getPosition();
+}
