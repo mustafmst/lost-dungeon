@@ -2,6 +2,7 @@
 #include "InputManager.hpp"
 #include "GameObject.hpp"
 #include "InputManager.hpp"
+#include "GameData.h"
 
 namespace ld
 {
@@ -10,13 +11,14 @@ namespace ld
 	private:
 		sf::Sprite _player;
 		b2Body* _playerBody;
-		InputManager& _input;
+		GameDataRef _data;
 		bool _isFacigRight = true;
+		b2Vec2 _lastVelocity;
 		
 		bool IsOnGround();
 		void SetSpriteDirection();
 	public:
-		Player(InputManager& input): _input(input) {}
+		Player(GameDataRef data): _data(data) {}
 		~Player() {}
 		
 		void Init(sf::Texture & texture);

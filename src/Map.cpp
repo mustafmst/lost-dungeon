@@ -33,6 +33,7 @@ void ld::Map::InitPhysics(b2World& world)
 				b2FixtureDef box2Fix;
 				box2Fix.shape = &box2;
 				box2Fix.density = 1;
+				box2Fix.friction = 0.f;
 				body->CreateFixture(&box2Fix);
 			}
 		}

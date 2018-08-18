@@ -7,6 +7,8 @@
 void ld::PlayState::Init()
 {
 	// Remember to init map first
+	_hud = std::unique_ptr<HUD>(new HUD(_data));
+	_hud->Init();
 	InitMap(_mapName);
 	InitPlayer();
 	InitCamera();
@@ -26,8 +28,7 @@ void ld::PlayState::Draw()
 	UpdateCamera();
 	for(auto o : _gameObjects)
 		o->Draw(_data->window);
-	if(DEBUG)
-	{
+#if DEBUG
 		//map debug
 		sf::RectangleShape rec;
 		rec.setFillColor(sf::Color(0,0,0,0));
@@ -48,12 +49,8 @@ void ld::PlayState::Draw()
 			
 			_data->window.draw(rec);
 		}
-	}
-	_data->window.setView(_data->window.getDefaultView());
-	auto rect = sf::RectangleShape(sf::Vector2f(100.f,20.f));
-	rect.setFillColor(sf::Color::Red);
-	rect.setPosition(10,10);
-	_data->window.draw(rect);
+#endif
+	_hud->Draw();
 	_data->window.display();  
 }
 
@@ -68,7 +65,7 @@ void ld::PlayState::HandleInputs()
 void ld::PlayState::InitPlayer()
 {
 	_data->assets.LoadTexture(PLAYER_NAME, PLAYER_FILEPATH);
-	Player player(_data->input);
+	Player player(_data);
 	player.Init(_data->assets.GetTexture(PLAYER_NAME));
 	player.InitPhysics(_world);
 	_player = std::make_shared<Player>(player);

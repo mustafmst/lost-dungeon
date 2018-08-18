@@ -7,6 +7,8 @@
   </Plugins>
   <VirtualDirectory Name="src">
     <VirtualDirectory Name="Engine">
+      <File Name="src/PlayerInfoManager.cpp"/>
+      <File Name="src/PlayerInfoManager.hpp"/>
       <VirtualDirectory Name="Animations">
         <File Name="src/AnimatedSprite.cpp"/>
         <File Name="src/AnimatedSprite.hpp"/>

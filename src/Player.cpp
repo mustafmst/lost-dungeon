@@ -6,10 +6,12 @@
 void ld::Player::Update(float delta)
 {
 	HandleMovement();
+	if(IsOnGround() && _lastVelocity.y > 10.f) _data->playerInfo.ChangeHealth(-10.f);
 	_player.setPosition(
 		_playerBody->GetPosition().x*F_SCALE,
 		(_playerBody->GetPosition().y*F_SCALE)-11.f
 	);
+	_lastVelocity = _playerBody->GetLinearVelocity();
 }
 
 void ld::Player::Draw(sf::RenderWindow& window)
@@ -34,6 +36,7 @@ void ld::Player::InitPhysics(b2World& world)
 	box1Fix.density = 1;
 	_playerBody->CreateFixture(&box1Fix);
 	_playerBody->SetFixedRotation(true);
+	_lastVelocity = _playerBody->GetLinearVelocity();
 }
 void ld::Player::Init(sf::Texture& texture)
 {
@@ -56,11 +59,11 @@ void ld::Player::HandleMovement()
 	MoveState moveState = STOP;
 	int moveDirection = 0;
 	b2Vec2 vel = _playerBody->GetLinearVelocity();
-	if(_input.CheckIfKeyIsPressed(sf::Keyboard::Right))
+	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Right))
 		moveDirection += 1;
-	if(_input.CheckIfKeyIsPressed(sf::Keyboard::Left))
+	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Left))
 		moveDirection-=1;
-	if(_input.CheckIfKeyIsPressed(sf::Keyboard::Space) && IsOnGround())
+	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Space) && IsOnGround())
 	{
 		vel.y = -10;
 	}

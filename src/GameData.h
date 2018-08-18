@@ -5,6 +5,7 @@
 #include "InputManager.hpp"
 #include "StateMachine.hpp"
 #include "AssetManager.hpp"
+#include "PlayerInfoManager.hpp"
 
 namespace ld
 {
@@ -14,6 +15,7 @@ namespace ld
 		InputManager input;
 		StateMachine stateMachine;
 		AssetManager assets;
+		PlayerInfoManager playerInfo;
 	};
 	
 	typedef std::shared_ptr<GameData> GameDataRef;

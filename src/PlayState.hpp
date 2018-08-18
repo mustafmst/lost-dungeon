@@ -7,6 +7,7 @@
 #include "GameObject.hpp"
 #include "Player.hpp"
 #include "Map.hpp"
+#include "HUD.hpp"
 
 namespace ld
 {
@@ -20,6 +21,7 @@ namespace ld
 		Map _map;
 		std::string _mapName;
 		std::unique_ptr<sf::View> _camera;
+		std::unique_ptr<HUD> _hud;
 		void HandleInputs();
 		void InitPlayer();
 		void InitMap(std::string mapFilePath);

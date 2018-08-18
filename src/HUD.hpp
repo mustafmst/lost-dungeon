@@ -6,17 +6,16 @@
 namespace ld
 {
 
-class HUD : public GameObject
+class HUD
 {
 	const float BarWidth = 20.f;
-	const float MaxBarLength = 100.f;
 	GameDataRef _data;
 	std::unique_ptr<sf::RectangleShape> _healtBar;
 public:
-	HUD(GameDataRef data): _data(data);
+	HUD(GameDataRef data): _data(data) {};
 	void Init();
-	void Update(float delta);
-	void Draw(sf::RenderWindow & window);
+	void Update();
+	void Draw();
 };
 
 }
