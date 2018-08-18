@@ -13,6 +13,8 @@ public:
 	~PlayerInfoManager(){};
 	void ChangeHealth(float healtDelta);
 	float GetHealthValue();
+	bool GameIsOver();
+	void Reset();
 };
 
 }

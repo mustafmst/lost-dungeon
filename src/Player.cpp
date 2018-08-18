@@ -2,16 +2,21 @@
 #include "MoveState.h"
 #include "assetsAndDefinitions.h"
 #include <iostream>
+#include "GameOver.hpp"
 
 void ld::Player::Update(float delta)
 {
 	HandleMovement();
-	if(IsOnGround() && _lastVelocity.y > 10.f) _data->playerInfo.ChangeHealth(-10.f);
+	if(IsOnGround() && _lastVelocity.y > 15.f) _data->playerInfo.ChangeHealth(-50.f);
 	_player.setPosition(
 		_playerBody->GetPosition().x*F_SCALE,
 		(_playerBody->GetPosition().y*F_SCALE)-11.f
 	);
 	_lastVelocity = _playerBody->GetLinearVelocity();
+	if(_data->playerInfo.GameIsOver())
+	{
+		_data->stateMachine.AddState(GameStateRef(new GameOver(_data)), true);
+	}
 }
 
 void ld::Player::Draw(sf::RenderWindow& window)
@@ -34,6 +39,7 @@ void ld::Player::InitPhysics(b2World& world)
 	b2FixtureDef box1Fix;
 	box1Fix.shape = &box1;
 	box1Fix.density = 1;
+	box1Fix.friction = 0.f;
 	_playerBody->CreateFixture(&box1Fix);
 	_playerBody->SetFixedRotation(true);
 	_lastVelocity = _playerBody->GetLinearVelocity();

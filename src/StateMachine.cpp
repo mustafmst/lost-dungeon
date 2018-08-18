@@ -36,4 +36,3 @@ ld::GameStateRef &ld::StateMachine::CurrentState()
 {
 	return _states.top();
 }
-
