@@ -12,6 +12,8 @@ namespace ld
 	{
 	private:
 		TileMap _map;
+		void InitGround(b2World & world);
+		void InitGoldLayer(b2World & world);
 	public:
 		Map() {}
 		~Map() {}

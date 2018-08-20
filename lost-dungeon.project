@@ -7,6 +7,8 @@
   </Plugins>
   <VirtualDirectory Name="src">
     <VirtualDirectory Name="Engine">
+      <File Name="src/ContactListener.cpp"/>
+      <File Name="src/ContactListener.hpp"/>
       <File Name="src/PlayerInfoManager.cpp"/>
       <File Name="src/PlayerInfoManager.hpp"/>
       <VirtualDirectory Name="Animations">
@@ -37,11 +39,17 @@
       <File Name="src/GameState.hpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="GameObjects">
+      <VirtualDirectory Name="Collectibles">
+        <File Name="src/GoldCoin.cpp"/>
+        <File Name="src/GoldCoin.hpp"/>
+      </VirtualDirectory>
       <VirtualDirectory Name="HUD">
         <File Name="src/HUD.cpp"/>
         <File Name="src/HUD.hpp"/>
       </VirtualDirectory>
       <VirtualDirectory Name="Map">
+        <File Name="src/GoldContactListener.cpp"/>
+        <File Name="src/GoldContactListener.hpp"/>
         <File Name="src/Map.hpp"/>
         <File Name="src/Map.cpp"/>
       </VirtualDirectory>

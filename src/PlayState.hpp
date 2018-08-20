@@ -8,6 +8,7 @@
 #include "Player.hpp"
 #include "Map.hpp"
 #include "HUD.hpp"
+#include "ContactListener.hpp"
 
 namespace ld
 {
@@ -22,11 +23,13 @@ namespace ld
 		std::string _mapName;
 		std::unique_ptr<sf::View> _camera;
 		std::unique_ptr<HUD> _hud;
+		std::unique_ptr<ContactListener> _eventHandler;
 		void HandleInputs();
 		void InitPlayer();
 		void InitMap(std::string mapFilePath);
 		void InitCamera();
 		void UpdateCamera();
+		void AddCoin(float x, float y);
 	public:
 		PlayState(GameDataRef data, std::string mapFilePath): _data(data), _mapName(mapFilePath), _world(b2Vec2(0.f,9.8f)) {}
 		void Init();

@@ -1,6 +1,6 @@
 #pragma once
 
-#define DEBUG true
+#define DEBUG false
 
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGTH 600
@@ -25,3 +25,5 @@
 #define MAP_FILEPATH "./assets/maps/basic-1.tmx"
 #define PLAYER_FILEPATH "./assets/img/knight-idle-1.png"
 #define PLAYER_NAME "knight-idle-1"
+#define GEMS_NAME "gems"
+#define GEMS_FILEPATH "./assets/img/gems.png"

@@ -22,4 +22,15 @@ bool ld::PlayerInfoManager::GameIsOver()
 void ld::PlayerInfoManager::Reset()
 {
 	_health = HealthMax;
+	_coins = 0;
+}
+
+void ld::PlayerInfoManager::GiveCoin()
+{
+	_coins++;
+}
+
+int ld::PlayerInfoManager::GetCoins()
+{
+	return _coins;
 }

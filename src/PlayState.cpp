@@ -3,23 +3,42 @@
 #include <STP/TMXLoader.hpp>
 #include "Map.hpp"
 #include "assetsAndDefinitions.h"
+#include "GoldCoin.hpp"
 
 void ld::PlayState::Init()
 {
 	// Remember to init map first
+	_data->assets.LoadTexture(GEMS_NAME, GEMS_FILEPATH);
+	_eventHandler = std::unique_ptr<ContactListener>(new ContactListener());
+	_world.SetContactListener(&*_eventHandler);
 	_hud = std::unique_ptr<HUD>(new HUD(_data));
 	_hud->Init();
 	InitMap(_mapName);
 	InitPlayer();
 	InitCamera();
+	AddCoin(17,14);
 }
 
 void ld::PlayState::Update(float delta)
 {
 	_world.Step(delta, 8, 3);
 	HandleInputs();
+	int index = 0;
+	std::vector<GameObjectRef> gameObjects = _gameObjects;
 	for(auto o : _gameObjects)
-		o->Update(delta);
+	{
+		if(!o->ForDestroy())
+		{
+			o->Update(delta);
+		}
+		else
+		{
+			gameObjects.erase(gameObjects.begin()+index);
+			index--;
+		}
+		index++;
+	}
+	_gameObjects = gameObjects;
 }
 
 void ld::PlayState::Draw()
@@ -65,10 +84,9 @@ void ld::PlayState::HandleInputs()
 void ld::PlayState::InitPlayer()
 {
 	_data->assets.LoadTexture(PLAYER_NAME, PLAYER_FILEPATH);
-	Player player(_data);
-	player.Init(_data->assets.GetTexture(PLAYER_NAME));
-	player.InitPhysics(_world);
-	_player = std::make_shared<Player>(player);
+	_player = std::shared_ptr<Player>(new Player(_data));
+	_player->Init(_data->assets.GetTexture(PLAYER_NAME));
+	_player->InitPhysics(_world);
 	_gameObjects.push_back(_player);
 }
 
@@ -91,4 +109,13 @@ void ld::PlayState::InitCamera()
 	_camera->setCenter(_player->GetPosition());
 	_camera->setSize(SCREEN_WIDTH/CAMERA_SCALE,SCREEN_HEIGTH/CAMERA_SCALE);
 	_data->window.setView(*_camera.get());
+}
+
+void ld::PlayState::AddCoin(float x, float y)
+{
+	auto coin = std::shared_ptr<GoldCoin>(new GoldCoin());
+	coin->Init(_data->assets.GetTexture(GEMS_NAME));
+	coin->SetPosition(x*16,y*16);
+	coin->InitPhysics(_world);
+	_gameObjects.push_back(coin);
 }

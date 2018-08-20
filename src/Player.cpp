@@ -32,6 +32,7 @@ void ld::Player::InitPhysics(b2World& world)
 		_player.getPosition().y/F_SCALE
 	);
 	def.type = b2_dynamicBody;
+	def.userData = this;
 	_playerBody = std::move(world.CreateBody(&def));
 	
 	b2PolygonShape box1;
@@ -125,4 +126,14 @@ void ld::Player::SetSpriteDirection()
 sf::Vector2f ld::Player::GetPosition()
 {
 	return _player.getPosition();
+}
+
+ld::Player::~Player()
+{
+	_playerBody->GetWorld()->DestroyBody(_playerBody);
+}
+
+void ld::Player::GiveCoin()
+{
+	_data->playerInfo.GiveCoin();
 }

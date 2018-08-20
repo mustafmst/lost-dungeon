@@ -19,7 +19,7 @@ namespace ld
 		void SetSpriteDirection();
 	public:
 		Player(GameDataRef data): _data(data) {}
-		~Player() {}
+		~Player();
 		
 		void Init(sf::Texture & texture);
 		void Update(float delta);
@@ -28,6 +28,7 @@ namespace ld
 		
 		sf::Vector2f GetPosition();
 		void HandleMovement();
+		void GiveCoin();
 	};
 }
 

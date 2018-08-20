@@ -10,6 +10,8 @@ namespace ld
 	public:
 		GameObject() {}
 		~GameObject() {}
+		bool _forDestroy = false;
+		bool ForDestroy(){return _forDestroy;};
 		virtual void Update(float delta) = 0;
 		virtual void Draw(sf::RenderWindow & window) = 0;
 		virtual void InitPhysics(b2World & world) = 0;
