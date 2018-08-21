@@ -1,6 +1,6 @@
 #pragma once
 
-#define DEBUG false
+#define DEBUG true
 
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGTH 600
@@ -17,6 +17,8 @@
 //main menu
 #define FONT_NAME "MainFont"
 #define FONT_FILEPATH "./assets/fonts/st.ttf"
+#define FONT_SECONDARY_NAME "SecondaryFont"
+#define FONT_SECONDARY_FILEPATH "./assets/fonts/Metamorphous-Regular.ttf"
 
 //pause
 

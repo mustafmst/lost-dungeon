@@ -1,8 +1,8 @@
 #pragma once
 #include <memory>
+#include <SFML/Graphics.hpp>
 #include "GameData.h"
 #include "GameObject.hpp"
-#include "assetsAndDefinitions.h"
 
 namespace ld
 {

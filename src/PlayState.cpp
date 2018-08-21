@@ -43,7 +43,6 @@ void ld::PlayState::Update(float delta)
 
 void ld::PlayState::Draw()
 {
-	_data->window.clear();
 	UpdateCamera();
 	for(auto o : _gameObjects)
 		o->Draw(_data->window);

@@ -23,6 +23,7 @@ namespace ld
 	
 	void Game::Run()
 	{
+		LoadAssets();
 		float delta = 0.f;
 		while(_data->window.isOpen())
 		{
@@ -31,8 +32,14 @@ namespace ld
 			_data->stateMachine.HandleStateChanges();
 			
 			_data->stateMachine.CurrentState()->Update(delta);
+			_data->window.clear();
 			_data->stateMachine.CurrentState()->Draw();
 		}
 	}
 }
 
+void ld::Game::LoadAssets()
+{
+	_data->assets.LoatFont(FONT_NAME, FONT_FILEPATH);
+	_data->assets.LoatFont(FONT_SECONDARY_NAME, FONT_SECONDARY_FILEPATH);
+}

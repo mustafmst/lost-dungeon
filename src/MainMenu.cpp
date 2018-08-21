@@ -4,7 +4,6 @@
 
 void ld::MainMenu::Init()
 {
-	_data->assets.LoatFont(FONT_NAME, FONT_FILEPATH);
 	
 	_gameTitle.setFont(_data->assets.GetFont(FONT_NAME));
 	_gameTitle.setCharacterSize(70);
