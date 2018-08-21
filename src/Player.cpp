@@ -26,23 +26,23 @@ void ld::Player::Draw(sf::RenderWindow& window)
 
 void ld::Player::InitPhysics(b2World& world)
 {
-	b2BodyDef def;
-	def.position = b2Vec2(
+	b2BodyDef playerBodyDefinition;
+	playerBodyDefinition.position = b2Vec2(
 		_player.getPosition().x/F_SCALE,
 		_player.getPosition().y/F_SCALE
 	);
-	def.type = b2_dynamicBody;
-	def.userData = this;
-	_playerBody = std::move(world.CreateBody(&def));
-	
-	b2PolygonShape box1;
-	box1.SetAsBox(8.f/F_SCALE,17.f/F_SCALE);
-	b2FixtureDef box1Fix;
-	box1Fix.shape = &box1;
-	box1Fix.density = 1;
-	box1Fix.friction = 0.f;
-	_playerBody->CreateFixture(&box1Fix);
+	playerBodyDefinition.type = b2_dynamicBody;
+	playerBodyDefinition.userData = this;
+	_playerBody = std::move(world.CreateBody(&playerBodyDefinition));
 	_playerBody->SetFixedRotation(true);
+	
+	b2PolygonShape boxShape;
+	boxShape.SetAsBox(8.f/F_SCALE,17.f/F_SCALE);
+	b2FixtureDef boxFixtureDef;
+	boxFixtureDef.shape = &boxShape;
+	boxFixtureDef.density = 1;
+	boxFixtureDef.friction = 0.f;
+	_playerBody->CreateFixture(&boxFixtureDef);
 	_lastVelocity = _playerBody->GetLinearVelocity();
 }
 void ld::Player::Init(sf::Texture& texture)
@@ -70,7 +70,7 @@ void ld::Player::HandleMovement()
 		moveDirection += 1;
 	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Left))
 		moveDirection-=1;
-	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Space) && IsOnGround())
+	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Up) && IsOnGround())
 	{
 		vel.y = -10;
 	}
