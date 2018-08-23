@@ -9,13 +9,16 @@ namespace ld
 	class Player : public GameObject
 	{
 	private:
+		const float JumpCooldownSecMax = 0.5f;
+	
 		sf::Sprite _player;
 		b2Body* _playerBody;
 		GameDataRef _data;
 		bool _isFacigRight = true;
 		b2Vec2 _lastVelocity;
+		float _jumpCooldown = 0.f;
 		
-		bool IsOnGround();
+		bool CanJump();
 		void SetSpriteDirection();
 	public:
 		Player(GameDataRef data): _data(data) {}
@@ -29,6 +32,7 @@ namespace ld
 		sf::Vector2f GetPosition();
 		void HandleMovement();
 		void GiveCoin();
+		b2Vec2 GetDirection();
 	};
 }
 

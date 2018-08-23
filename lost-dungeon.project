@@ -39,6 +39,10 @@
       <File Name="src/GameState.hpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="GameObjects">
+      <VirtualDirectory Name="Skeleton">
+        <File Name="src/Skeleton.cpp"/>
+        <File Name="src/Skeleton.hpp"/>
+      </VirtualDirectory>
       <VirtualDirectory Name="Collectibles">
         <File Name="src/GoldCoin.cpp"/>
         <File Name="src/GoldCoin.hpp"/>
@@ -48,8 +52,6 @@
         <File Name="src/HUD.hpp"/>
       </VirtualDirectory>
       <VirtualDirectory Name="Map">
-        <File Name="src/GoldContactListener.cpp"/>
-        <File Name="src/GoldContactListener.hpp"/>
         <File Name="src/Map.hpp"/>
         <File Name="src/Map.cpp"/>
       </VirtualDirectory>

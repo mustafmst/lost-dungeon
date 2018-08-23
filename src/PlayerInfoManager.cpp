@@ -27,7 +27,7 @@ void ld::PlayerInfoManager::Reset()
 
 void ld::PlayerInfoManager::GiveCoin()
 {
-	_coins+=999999;
+	_coins++;
 }
 
 int ld::PlayerInfoManager::GetCoins()

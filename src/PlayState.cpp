@@ -97,7 +97,10 @@ void ld::PlayState::InitMap(std::string mapFilePath)
 }
 void ld::PlayState::UpdateCamera()
 {
-	auto r = _player->GetPosition()-_camera->getCenter();
+	auto forwardDirection = _player->GetDirection();
+	forwardDirection.x = forwardDirection.x*CAMERA_FORWARD;
+	forwardDirection.y = forwardDirection.y*CAMERA_FORWARD;
+	auto r = (_player->GetPosition()+sf::Vector2f(forwardDirection.x, forwardDirection.y))-_camera->getCenter();
 	_camera->move(r.x/CAMERA_DELAY, r.y/CAMERA_DELAY);
 	_data->window.setView(*_camera);
 }

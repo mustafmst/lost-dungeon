@@ -6,8 +6,9 @@
 
 void ld::Player::Update(float delta)
 {
+	if(_jumpCooldown > 0) _jumpCooldown-=delta;
 	HandleMovement();
-	if(IsOnGround() && _lastVelocity.y > 15.f) _data->playerInfo.ChangeHealth(-50.f);
+	if(CanJump() && _lastVelocity.y > 15.f) _data->playerInfo.ChangeHealth(-50.f);
 	_player.setPosition(
 		_playerBody->GetPosition().x*F_SCALE,
 		(_playerBody->GetPosition().y*F_SCALE)-11.f
@@ -54,11 +55,11 @@ void ld::Player::Init(sf::Texture& texture)
 	);
 }
 
-bool ld::Player::IsOnGround()
+bool ld::Player::CanJump()
 {
 	const float velocityBorders = 0.001f;
 	const float current = _playerBody->GetLinearVelocity().y;
-	return  current > -velocityBorders && current < velocityBorders;
+	return  current > -velocityBorders && current < velocityBorders && _jumpCooldown <= 0;
 }
 
 void ld::Player::HandleMovement()
@@ -70,8 +71,9 @@ void ld::Player::HandleMovement()
 		moveDirection += 1;
 	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Left))
 		moveDirection-=1;
-	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Up) && IsOnGround())
+	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Up) && CanJump())
 	{
+		_jumpCooldown = JumpCooldownSecMax;
 		vel.y = -10;
 	}
 	switch(moveDirection)
@@ -136,4 +138,11 @@ ld::Player::~Player()
 void ld::Player::GiveCoin()
 {
 	_data->playerInfo.GiveCoin();
+}
+
+b2Vec2 ld::Player::GetDirection()
+{
+	auto vel = _playerBody->GetLinearVelocity();
+	vel.Normalize();
+	return vel;
 }

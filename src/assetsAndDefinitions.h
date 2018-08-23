@@ -5,7 +5,8 @@
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGTH 600
 #define CAMERA_SCALE 1.7
-#define CAMERA_DELAY 10
+#define CAMERA_DELAY 20
+#define CAMERA_FORWARD 30.f
 #define FRAME_RATE 200.f
 #define GAME_TITLE "Lost Dungeon"
 
@@ -29,3 +30,5 @@
 #define PLAYER_NAME "knight-idle-1"
 #define GEMS_NAME "gems"
 #define GEMS_FILEPATH "./assets/img/gems.png"
+#define SKELETON_IDLE_NAME "skeleton-idle"
+#define SKELETON_IDLE_FILEPATH "./assets/img/Skeleton Idle.png"
