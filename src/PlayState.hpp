@@ -27,6 +27,8 @@ namespace ld
 		void HandleInputs();
 		void InitPlayer();
 		void InitMap(std::string mapFilePath);
+		void InitCoins();
+		void InitEnemies();
 		void InitCamera();
 		void UpdateCamera();
 		void AddCoin(float x, float y);

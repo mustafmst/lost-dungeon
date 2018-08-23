@@ -4,6 +4,7 @@
 #include "Map.hpp"
 #include "assetsAndDefinitions.h"
 #include "GoldCoin.hpp"
+#include "Skeleton.hpp"
 
 void ld::PlayState::Init()
 {
@@ -16,7 +17,8 @@ void ld::PlayState::Init()
 	InitMap(_mapName);
 	InitPlayer();
 	InitCamera();
-	AddCoin(17,14);
+	InitCoins();
+	InitEnemies();
 }
 
 void ld::PlayState::Update(float delta)
@@ -120,4 +122,18 @@ void ld::PlayState::AddCoin(float x, float y)
 	coin->SetPosition(x*16,y*16);
 	coin->InitPhysics(_world);
 	_gameObjects.push_back(coin);
+}
+
+void ld::PlayState::InitCoins()
+{
+	AddCoin(17,14);
+	AddCoin(18,14);
+	AddCoin(19,14);
+}
+
+void ld::PlayState::InitEnemies()
+{
+	auto skel = new Skeleton(_data, sf::Vector2f(150.f,300.f),10.f, 500.f);
+	skel->InitPhysics(_world);
+	_gameObjects.push_back(GameObjectRef(skel));
 }
