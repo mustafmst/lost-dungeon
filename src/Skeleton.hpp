@@ -7,10 +7,12 @@ namespace ld
 
 class Skeleton: public GameObject 
 {
+	float _damage = 70.f;
 	GameDataRef _data;
 	sf::Sprite _skeleton;
 	b2Body* _body;
 	float _left, _right;
+	bool _goRight = true;
 	
 	void Move();
 public:
@@ -20,6 +22,7 @@ public:
 	void Update(float delta);
 	void Draw(sf::RenderWindow & window);
 	void InitPhysics(b2World & world);
+	float GetDamage();
 };
 
 }

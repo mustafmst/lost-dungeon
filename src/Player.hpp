@@ -24,7 +24,7 @@ namespace ld
 		Player(GameDataRef data): _data(data) {}
 		~Player();
 		
-		void Init(sf::Texture & texture);
+		void Init(sf::Texture & texture, sf::Vector2f startPos);
 		void Update(float delta);
 		void Draw(sf::RenderWindow & window);
 		void InitPhysics(b2World & world);
@@ -32,6 +32,7 @@ namespace ld
 		sf::Vector2f GetPosition();
 		void HandleMovement();
 		void GiveCoin();
+		void Hurt(float points);
 		b2Vec2 GetDirection();
 	};
 }

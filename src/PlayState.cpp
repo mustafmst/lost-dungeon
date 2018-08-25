@@ -86,7 +86,7 @@ void ld::PlayState::InitPlayer()
 {
 	_data->assets.LoadTexture(PLAYER_NAME, PLAYER_FILEPATH);
 	_player = std::shared_ptr<Player>(new Player(_data));
-	_player->Init(_data->assets.GetTexture(PLAYER_NAME));
+	_player->Init(_data->assets.GetTexture(PLAYER_NAME), sf::Vector2f(19*TILE_SIZE, 4*TILE_SIZE));
 	_player->InitPhysics(_world);
 	_gameObjects.push_back(_player);
 }
@@ -133,7 +133,7 @@ void ld::PlayState::InitCoins()
 
 void ld::PlayState::InitEnemies()
 {
-	auto skel = new Skeleton(_data, sf::Vector2f(150.f,300.f),10.f, 500.f);
+	auto skel = new Skeleton(_data, sf::Vector2f(25*TILE_SIZE,4*TILE_SIZE),25*TILE_SIZE, 49*TILE_SIZE);
 	skel->InitPhysics(_world);
 	_gameObjects.push_back(GameObjectRef(skel));
 }

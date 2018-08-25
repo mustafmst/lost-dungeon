@@ -1,6 +1,7 @@
 #include "ContactListener.hpp"
 #include <iostream>
 #include "GoldCoin.hpp"
+#include "Skeleton.hpp"
 
 
 void ld::ContactListener::BeginContact(b2Contact* contact)
@@ -18,6 +19,7 @@ void ld::ContactListener::BeginContact(b2Contact* contact)
 			if(player == nullptr) return;
 		}
 		HandleCoinCollect(player, other);
+		HandleEnemyCollision(player, other);
 	}
 }
 
@@ -31,4 +33,11 @@ void ld::ContactListener::HandleCoinCollect(Player* player, GameObject* other)
 	if(coin == nullptr) return;
 	player->GiveCoin();
 	coin->_forDestroy = true;
+}
+
+void ld::ContactListener::HandleEnemyCollision(Player* player, GameObject* other)
+{
+	auto enemy = dynamic_cast<Skeleton*>(other);
+	if(enemy == nullptr) return;
+	player->Hurt(enemy->GetDamage());
 }

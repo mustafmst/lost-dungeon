@@ -46,13 +46,10 @@ void ld::Player::InitPhysics(b2World& world)
 	_playerBody->CreateFixture(&boxFixtureDef);
 	_lastVelocity = _playerBody->GetLinearVelocity();
 }
-void ld::Player::Init(sf::Texture& texture)
+void ld::Player::Init(sf::Texture& texture, sf::Vector2f startPos)
 {
 	_player.setTexture(texture);
-	_player.setPosition(
-		(SCREEN_WIDTH/2) - (_player.getGlobalBounds().width/2)- 10,
-		200
-	);
+	_player.setPosition(startPos);
 }
 
 bool ld::Player::CanJump()
@@ -92,6 +89,7 @@ void ld::Player::HandleMovement()
 		case STOP:  vel.x =  0; break;
 		case RIGHT: vel.x =  5; break;
 	}
+	if(vel.y == 0 && moveState != STOP) vel.y = -0.1f;
 	_playerBody->SetLinearVelocity( vel );
 	SetSpriteDirection();
 }
@@ -145,4 +143,9 @@ b2Vec2 ld::Player::GetDirection()
 	auto vel = _playerBody->GetLinearVelocity();
 	vel.Normalize();
 	return vel;
+}
+
+void ld::Player::Hurt(float points)
+{
+	_data->playerInfo.ChangeHealth(-points);
 }

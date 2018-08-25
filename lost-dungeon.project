@@ -56,10 +56,10 @@
         <File Name="src/Map.cpp"/>
       </VirtualDirectory>
       <VirtualDirectory Name="Player">
+        <File Name="src/MoveState.h"/>
         <File Name="src/PlayerAnimations.cpp"/>
         <File Name="src/PlayerAnimations.hpp"/>
         <File Name="src/knightAnimations.h"/>
-        <File Name="src/MoveState.h"/>
         <File Name="src/Player.hpp"/>
         <File Name="src/Player.cpp"/>
       </VirtualDirectory>
@@ -86,7 +86,7 @@
         <IncludePath Value="./../include"/>
       </Compiler>
       <Linker Options="" Required="yes">
-        <LibraryPath Value="../libs"/>
+        <LibraryPath Value="/usr/local/lib/"/>
         <Library Value="sfml-system"/>
         <Library Value="sfml-graphics"/>
         <Library Value="sfml-window"/>
@@ -138,6 +138,8 @@
         <Preprocessor Value="NDEBUG"/>
       </Compiler>
       <Linker Options="" Required="yes">
+        <LibraryPath Value="../libs"/>
+        <LibraryPath Value="/usr/local/lib"/>
         <Library Value="sfml-system"/>
         <Library Value="sfml-graphics"/>
         <Library Value="sfml-window"/>

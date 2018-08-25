@@ -9,6 +9,12 @@ void ld::Skeleton::Update(float delta)
 		(_body->GetPosition().y*F_SCALE)-11.f
 	);
 	Move();
+	if(_goRight)
+	{
+		_skeleton.setTextureRect(sf::IntRect(0,0,16,32));
+	} else {
+		_skeleton.setTextureRect(sf::IntRect(16,0,-16,32));
+	}
 }
 
 void ld::Skeleton::Draw(sf::RenderWindow& window)
@@ -49,4 +55,24 @@ ld::Skeleton::Skeleton(GameDataRef data, sf::Vector2f startPos, float left, floa
 
 void ld::Skeleton::Move()
 {
+	auto xPos = _skeleton.getPosition().x;
+	if(_body->GetLinearVelocity().x == 0)
+	{
+		_goRight = !_goRight;
+	} else if(xPos < _left){
+		_goRight = true;
+	} else if(xPos > _right){
+		_goRight = false;
+	}
+	auto velocity = b2Vec2(-4.f,0.1f);
+	if(_goRight)
+	{
+		velocity = b2Vec2(4.f,0.1f);
+	}
+	_body->SetLinearVelocity(velocity);
+}
+
+float ld::Skeleton::GetDamage()
+{
+	return _damage;
 }
