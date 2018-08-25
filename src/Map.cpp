@@ -37,7 +37,6 @@ void ld::Map::InitGround(b2World & world)
 				b2BodyDef def2;
 				def2.position = b2Vec2((x*16.f)/F_SCALE, (y*16.f)/F_SCALE);
 				def2.type = b2_staticBody;
-				def2.userData = this;
 				b2Body* body = std::move(world.CreateBody(&def2));
 				
 				b2PolygonShape box2;

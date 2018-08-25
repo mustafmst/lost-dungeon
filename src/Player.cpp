@@ -3,6 +3,7 @@
 #include "assetsAndDefinitions.h"
 #include <iostream>
 #include "GameOver.hpp"
+#include "knightAnimations.h"
 
 void ld::Player::Update(float delta)
 {
@@ -49,6 +50,7 @@ void ld::Player::InitPhysics(b2World& world)
 void ld::Player::Init(sf::Texture& texture, sf::Vector2f startPos)
 {
 	_player.setTexture(texture);
+	_player.setTextureRect(KNIGHT_IDLE_FRAME_1_R);
 	_player.setPosition(startPos);
 }
 
@@ -106,18 +108,12 @@ void ld::Player::SetSpriteDirection()
 		if(!_isFacigRight)
 		{
 			_player.setTextureRect(
-				sf::IntRect(
-					currentRect.width, 0, 
-					-currentRect.width, currentRect.height
-				)
+				sf::IntRect(KNIGHT_IDLE_FRAME_1_L)
 			);
 		} else 
 		{
 			_player.setTextureRect(
-				sf::IntRect(
-					0, 0, 
-					-currentRect.width, currentRect.height
-				)
+				sf::IntRect(KNIGHT_IDLE_FRAME_1_R)
 			);
 		}
 	}

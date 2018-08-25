@@ -12,7 +12,7 @@ class PlayerAnimations
 {
 	AnimatedSpriteRef _animatedSprite;
 public:
-	PlayerAnimations();
+	PlayerAnimations(sf::Texture & texture);
 	void Draw(sf::RenderWindow& window);
 };
 
