@@ -7,12 +7,13 @@
 
 void ld::Player::Update(float delta)
 {
+	_player->Update(delta);
 	if(_jumpCooldown > 0) _jumpCooldown-=delta;
 	HandleMovement();
 	if(CanJump() && _lastVelocity.y > 15.f) _data->playerInfo.ChangeHealth(-50.f);
-	_player.setPosition(
+	_player->SetPos(sf::Vector2f(
 		_playerBody->GetPosition().x*F_SCALE,
-		(_playerBody->GetPosition().y*F_SCALE)-11.f
+		(_playerBody->GetPosition().y*F_SCALE)-11.f)
 	);
 	_lastVelocity = _playerBody->GetLinearVelocity();
 	if(_data->playerInfo.GameIsOver())
@@ -23,15 +24,15 @@ void ld::Player::Update(float delta)
 
 void ld::Player::Draw(sf::RenderWindow& window)
 {
-	window.draw(_player);
+	_player->Draw(window);
 }
 
 void ld::Player::InitPhysics(b2World& world)
 {
 	b2BodyDef playerBodyDefinition;
 	playerBodyDefinition.position = b2Vec2(
-		_player.getPosition().x/F_SCALE,
-		_player.getPosition().y/F_SCALE
+		_player->GetPos().x/F_SCALE,
+		_player->GetPos().y/F_SCALE
 	);
 	playerBodyDefinition.type = b2_dynamicBody;
 	playerBodyDefinition.userData = this;
@@ -49,9 +50,7 @@ void ld::Player::InitPhysics(b2World& world)
 }
 void ld::Player::Init(sf::Texture& texture, sf::Vector2f startPos)
 {
-	_player.setTexture(texture);
-	_player.setTextureRect(KNIGHT_IDLE_FRAME_1_R);
-	_player.setPosition(startPos);
+	_player = std::shared_ptr<PlayerAnimations>(new PlayerAnimations(texture, startPos));
 }
 
 bool ld::Player::CanJump()
@@ -104,24 +103,23 @@ void ld::Player::SetSpriteDirection()
 	if(currentFacing != _isFacigRight)
 	{
 		_isFacigRight = currentFacing;
-		auto currentRect = _player.getTextureRect();
 		if(!_isFacigRight)
 		{
-			_player.setTextureRect(
-				sf::IntRect(KNIGHT_IDLE_FRAME_1_L)
-			);
+			//_player.setTextureRect(
+			//	sf::IntRect(KNIGHT_IDLE_FRAME_1_L)
+			//);
 		} else 
 		{
-			_player.setTextureRect(
-				sf::IntRect(KNIGHT_IDLE_FRAME_1_R)
-			);
+			//_player.setTextureRect(
+			//	sf::IntRect(KNIGHT_IDLE_FRAME_1_R)
+			//);
 		}
 	}
 }
 
 sf::Vector2f ld::Player::GetPosition()
 {
-	return _player.getPosition();
+	return _player->GetPos();
 }
 
 ld::Player::~Player()

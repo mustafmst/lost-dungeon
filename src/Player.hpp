@@ -3,6 +3,7 @@
 #include "GameObject.hpp"
 #include "InputManager.hpp"
 #include "GameData.h"
+#include "PlayerAnimations.hpp"
 
 namespace ld
 {
@@ -11,7 +12,7 @@ namespace ld
 	private:
 		const float JumpCooldownSecMax = 0.5f;
 	
-		sf::Sprite _player;
+		std::shared_ptr<PlayerAnimations> _player;
 		b2Body* _playerBody;
 		GameDataRef _data;
 		bool _isFacigRight = true;
