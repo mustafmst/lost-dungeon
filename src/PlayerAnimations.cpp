@@ -19,7 +19,7 @@ sf::Vector2f ld::PlayerAnimations::GetPos()
 ld::PlayerAnimations::PlayerAnimations(sf::Texture& texture, sf::Vector2f startPos)
 {
 	_texture = std::shared_ptr<sf::Texture>(new sf::Texture(texture));
-	_animatedSprite = AnimatedSpriteRef(new AnimatedSprite(sf::seconds(0.2f), false, true));
+	_animatedSprite = AnimatedSpriteRef(new AnimatedSprite(sf::seconds(0.15f), false, true));
 	SetPos(startPos);
 	
 	_idleRight = AnimationRef(new Animation);
@@ -31,16 +31,39 @@ ld::PlayerAnimations::PlayerAnimations(sf::Texture& texture, sf::Vector2f startP
 	
 	_idleLeft = AnimationRef(new Animation());
 	_idleLeft->setSpriteSheet(*_texture);
-	_idleRight->addFrame(KNIGHT_IDLE_FRAME_1_L);
-	_idleRight->addFrame(KNIGHT_IDLE_FRAME_2_L);
-	_idleRight->addFrame(KNIGHT_IDLE_FRAME_3_L);
-	_idleRight->addFrame(KNIGHT_IDLE_FRAME_4_L);
+	_idleLeft->addFrame(KNIGHT_IDLE_FRAME_1_L);
+	_idleLeft->addFrame(KNIGHT_IDLE_FRAME_2_L);
+	_idleLeft->addFrame(KNIGHT_IDLE_FRAME_3_L);
+	_idleLeft->addFrame(KNIGHT_IDLE_FRAME_4_L);
+	
+	_walkRight = AnimationRef(new Animation());
+	_walkRight->setSpriteSheet(*_texture);
+	_walkRight->addFrame(KNIGHT_WALK_FRAME_1_R);
+	_walkRight->addFrame(KNIGHT_WALK_FRAME_2_R);
+	_walkRight->addFrame(KNIGHT_WALK_FRAME_3_R);
+	_walkRight->addFrame(KNIGHT_WALK_FRAME_4_R);
+	_walkRight->addFrame(KNIGHT_WALK_FRAME_5_R);
+	_walkRight->addFrame(KNIGHT_WALK_FRAME_6_R);
+	_walkRight->addFrame(KNIGHT_WALK_FRAME_7_R);
+	_walkRight->addFrame(KNIGHT_WALK_FRAME_8_R);
+	
+	_walkLeft = AnimationRef(new Animation());
+	_walkLeft->setSpriteSheet(*_texture);
+	_walkLeft->addFrame(KNIGHT_WALK_FRAME_1_L);
+	_walkLeft->addFrame(KNIGHT_WALK_FRAME_2_L);
+	_walkLeft->addFrame(KNIGHT_WALK_FRAME_3_L);
+	_walkLeft->addFrame(KNIGHT_WALK_FRAME_4_L);
+	_walkLeft->addFrame(KNIGHT_WALK_FRAME_5_L);
+	_walkLeft->addFrame(KNIGHT_WALK_FRAME_6_L);
+	_walkLeft->addFrame(KNIGHT_WALK_FRAME_7_L);
+	_walkLeft->addFrame(KNIGHT_WALK_FRAME_8_L);
+	
 	_animatedSprite->play(*_idleRight);
 }
 
 void ld::PlayerAnimations::Update(float delta)
 {
-	//ChooseAnimation();
+	ChooseAnimation();
 	_animatedSprite->update(sf::seconds(delta));
 }
 
@@ -51,11 +74,24 @@ void ld::PlayerAnimations::SetDirection(AnimationDirection newDir)
 
 void ld::PlayerAnimations::ChooseAnimation()
 {
-	if(_direction == AnimationDirection::ANIM_RIGHT)
+	if(_direction == ANIM_RIGHT)
 	{
-		_animatedSprite->play(*_idleRight);
+		if(_isMoving){
+			_animatedSprite->play(*_walkRight);
+		} else {
+			_animatedSprite->play(*_idleRight);
+		}
 	} else
 	{
-		_animatedSprite->play(*_idleLeft);
+		if(_isMoving){
+			_animatedSprite->play(*_walkLeft);
+		} else {
+			_animatedSprite->play(*_idleLeft);
+		}
 	}
+}
+
+void ld::PlayerAnimations::SetIsMoving(bool isMoving)
+{
+	_isMoving = isMoving;
 }

@@ -48,7 +48,7 @@ void ld::PlayState::Draw()
 	UpdateCamera();
 	for(auto o : _gameObjects)
 		o->Draw(_data->window);
-#if DEBUG
+#if GRID
 		//map debug
 		sf::RectangleShape rec;
 		rec.setFillColor(sf::Color(0,0,0,0));

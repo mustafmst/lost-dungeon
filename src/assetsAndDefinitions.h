@@ -1,6 +1,7 @@
 #pragma once
 
 #define DEBUG true
+#define GRID false
 
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGTH 600

@@ -13,10 +13,12 @@ typedef std::shared_ptr<Animation> AnimationRef;
 class PlayerAnimations
 {
 	AnimationRef _idleRight, _idleLeft;
+	AnimationRef _walkRight, _walkLeft;
 	AnimatedSpriteRef _animatedSprite;
 	std::shared_ptr<sf::Texture> _texture;
 	
-	AnimationDirection _direction;
+	AnimationDirection _direction = ANIM_RIGHT;
+	bool _isMoving = false;
 	
 	void ChooseAnimation();
 public:
@@ -26,6 +28,7 @@ public:
 	void Update(float delta);
 	void Draw(sf::RenderWindow& window);
 	void SetDirection(AnimationDirection newDir);
+	void SetIsMoving(bool isMoving);
 };
 
 }

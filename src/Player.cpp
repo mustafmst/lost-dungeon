@@ -86,9 +86,16 @@ void ld::Player::HandleMovement()
 	}
 	switch ( moveState )
 	{
-		case LEFT:  vel.x = -5; break;
-		case STOP:  vel.x =  0; break;
-		case RIGHT: vel.x =  5; break;
+		case LEFT:  vel.x = -5; 
+			_player->SetIsMoving(true);
+		break;
+		case RIGHT: vel.x =  5; 
+			_player->SetIsMoving(true);
+		break;
+		case STOP:  
+			vel.x =  0;
+			_player->SetIsMoving(false);
+			break;
 	}
 	if(vel.y == 0 && moveState != STOP) vel.y = -0.1f;
 	_playerBody->SetLinearVelocity( vel );
@@ -105,14 +112,10 @@ void ld::Player::SetSpriteDirection()
 		_isFacigRight = currentFacing;
 		if(!_isFacigRight)
 		{
-			//_player.setTextureRect(
-			//	sf::IntRect(KNIGHT_IDLE_FRAME_1_L)
-			//);
+			_player->SetDirection(ANIM_LEFT);
 		} else 
 		{
-			//_player.setTextureRect(
-			//	sf::IntRect(KNIGHT_IDLE_FRAME_1_R)
-			//);
+			_player->SetDirection(ANIM_RIGHT);
 		}
 	}
 }
