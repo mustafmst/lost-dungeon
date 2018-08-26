@@ -167,3 +167,8 @@ void ld::Player::Attack()
 		}
 	}
 }
+
+void ld::Player::Heal(float points)
+{
+	_data->playerInfo.ChangeHealth(points);
+}

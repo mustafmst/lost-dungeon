@@ -18,8 +18,9 @@ void ld::ContactListener::BeginContact(b2Contact* contact)
 			other = A;
 			if(player == nullptr) return;
 		}
-		if(other->_type == COIN) if(HandleCoinCollect(player, other)) return;
-		if(other->_type == ENEMY) if(HandleEnemyCollision(player, other)) return;
+		if(other->_type == COIN) HandleCoinCollect(player, other);
+		if(other->_type == HP) HandlePotionCollect(player, other);
+		if(other->_type == ENEMY) HandleEnemyCollision(player, other);
 	}
 }
 
@@ -27,19 +28,21 @@ void ld::ContactListener::EndContact(b2Contact* contact)
 {
 }
 
-bool ld::ContactListener::HandleCoinCollect(Player* player, GameObject* other)
+void ld::ContactListener::HandleCoinCollect(Player* player, GameObject* other)
 {
-	auto coin = static_cast<GoldCoin*>(other);
-	if(coin == nullptr) return false;
 	player->GiveCoin();
-	coin->_forDestroy = true;
-	return true;
+	other->_forDestroy = true;
 }
 
-bool ld::ContactListener::HandleEnemyCollision(Player* player, GameObject* other)
+void ld::ContactListener::HandleEnemyCollision(Player* player, GameObject* other)
 {
 	auto enemy = static_cast<Skeleton*>(other);
-	if(enemy == nullptr) return false;
+	if(enemy == nullptr) return;
 	player->Hurt(enemy->GetDamage());
-	return true;
+}
+
+void ld::ContactListener::HandlePotionCollect(Player* player, GameObject* other)
+{
+	player->Heal(100.f);
+	other->_forDestroy = true;
 }

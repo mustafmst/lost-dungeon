@@ -27,10 +27,14 @@ namespace ld
 		void InitPlayer();
 		void InitMap(std::string mapFilePath);
 		void InitCoins();
+		void InitHP();
+		void InitFinish();
 		void InitEnemies();
 		void InitCamera();
 		void UpdateCamera();
-		void AddCoin(float x, float y);
+		void AddCoin(int x, int y);
+		void AddHP(int x, int y);
+		void AddFinish(int x, int y);
 	public:
 		PlayState(GameDataRef data, std::string mapFilePath): _data(data), _mapName(mapFilePath), _world(b2Vec2(0.f,9.8f)) {}
 		std::vector<GameObjectRef> _gameObjects;

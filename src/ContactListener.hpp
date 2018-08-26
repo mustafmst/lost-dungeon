@@ -13,8 +13,9 @@ public:
 	~ContactListener(){};
 	void BeginContact(b2Contact* contact);
 	void EndContact(b2Contact* contact);
-	bool HandleCoinCollect(Player* player, GameObject* other);
-	bool HandleEnemyCollision(Player* player, GameObject* other);
+	void HandleCoinCollect(Player* player, GameObject* other);
+	void HandlePotionCollect(Player* player, GameObject* other);
+	void HandleEnemyCollision(Player* player, GameObject* other);
 };
 
 }

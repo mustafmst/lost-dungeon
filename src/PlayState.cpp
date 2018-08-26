@@ -5,6 +5,7 @@
 #include "assetsAndDefinitions.h"
 #include "GoldCoin.hpp"
 #include "Skeleton.hpp"
+#include "HealthPotion.hpp"
 
 void ld::PlayState::Init()
 {
@@ -17,8 +18,10 @@ void ld::PlayState::Init()
 	InitMap(_mapName);
 	InitPlayer();
 	InitCamera();
+	InitHP();
 	InitCoins();
 	InitEnemies();
+	InitFinish();
 }
 
 void ld::PlayState::Update(float delta)
@@ -115,18 +118,9 @@ void ld::PlayState::InitCamera()
 	_data->window.setView(*_camera.get());
 }
 
-void ld::PlayState::AddCoin(float x, float y)
-{
-	auto coin = std::shared_ptr<GoldCoin>(new GoldCoin());
-	coin->Init(_data->assets.GetTexture(GEMS_NAME));
-	coin->SetPosition(x*16,y*16);
-	coin->InitPhysics(_world);
-	_gameObjects.push_back(coin);
-}
-
 void ld::PlayState::InitCoins()
 {
-	AddCoin(17,14);
+	//AddCoin(17,14);
 	AddCoin(18,14);
 	AddCoin(19,14);
 }
@@ -136,4 +130,29 @@ void ld::PlayState::InitEnemies()
 	auto skel = new Skeleton(_data, sf::Vector2f(25*TILE_SIZE,4*TILE_SIZE),25*TILE_SIZE, 49*TILE_SIZE);
 	skel->InitPhysics(_world);
 	_gameObjects.push_back(GameObjectRef(skel));
+}
+
+void ld::PlayState::InitHP()
+{
+	AddHP(36,35);
+}
+
+void ld::PlayState::InitFinish()
+{
+}
+
+void ld::PlayState::AddCoin(int x, int y)
+{
+	auto coin = std::shared_ptr<GoldCoin>(new GoldCoin(_data, sf::Vector2f(x*16.f,y*16.f), _world));
+	_gameObjects.push_back(coin);
+}
+
+void ld::PlayState::AddHP(int x, int y)
+{
+	auto hp = std::shared_ptr<HealthPotion>(new HealthPotion(_data, sf::Vector2f(x*16.f,y*16.f),_world));
+	_gameObjects.push_back(hp);
+}
+
+void ld::PlayState::AddFinish(int x, int y)
+{
 }

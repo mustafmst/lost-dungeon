@@ -2,3 +2,4 @@
 #define PLAYER "Player"
 #define ENEMY "Enemy"
 #define COIN "Coin"
+#define HP "hp"

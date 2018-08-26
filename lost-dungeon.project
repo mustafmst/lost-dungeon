@@ -48,6 +48,10 @@
         <File Name="src/Skeleton.hpp"/>
       </VirtualDirectory>
       <VirtualDirectory Name="Collectibles">
+        <File Name="src/Collectible.cpp"/>
+        <File Name="src/Collectible.hpp"/>
+        <File Name="src/HealthPotion.cpp"/>
+        <File Name="src/HealthPotion.hpp"/>
         <File Name="src/GoldCoin.cpp"/>
         <File Name="src/GoldCoin.hpp"/>
       </VirtualDirectory>

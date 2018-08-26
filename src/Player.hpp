@@ -39,6 +39,7 @@ namespace ld
 		void HandleMovement();
 		void GiveCoin();
 		void Hurt(float points);
+		void Heal(float points);
 		b2Vec2 GetDirection();
 	};
 }

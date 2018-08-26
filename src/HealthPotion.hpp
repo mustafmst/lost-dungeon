@@ -5,11 +5,13 @@
 
 namespace ld
 {
-class GoldCoin: public Collectible
+
+class HealthPotion: public Collectible
 {
 public:
-	GoldCoin(GameDataRef data, sf::Vector2f pos, b2World & world);
+	HealthPotion(GameDataRef data, sf::Vector2f pos, b2World & world);
 };
+
 
 }
 
