@@ -1,6 +1,6 @@
 #pragma once
 
-#define DEBUG true
+#define DEBUG false
 #define GRID false
 
 #define SCREEN_WIDTH 800
@@ -27,7 +27,7 @@
 //game
 #define F_SCALE 20
 #define TILE_SIZE 16.f
-#define MAP_FILEPATH "./assets/maps/basic-1.tmx"
+#define MAP_FILEPATH "./assets/maps/game-test.tmx"
 #define PLAYER_FILEPATH "./assets/img/knight-sprites.png"
 #define PLAYER_NAME "knight-sprites"
 #define GEMS_NAME "gems"

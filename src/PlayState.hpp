@@ -35,6 +35,7 @@ namespace ld
 		void AddCoin(int x, int y);
 		void AddHP(int x, int y);
 		void AddFinish(int x, int y);
+		void AddEnemy(int x, int y, int left, int right);
 	public:
 		PlayState(GameDataRef data, std::string mapFilePath): _data(data), _mapName(mapFilePath), _world(b2Vec2(0.f,9.8f)) {}
 		std::vector<GameObjectRef> _gameObjects;

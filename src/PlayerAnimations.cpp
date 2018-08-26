@@ -75,29 +75,29 @@ ld::PlayerAnimations::PlayerAnimations(sf::Texture& texture, sf::Vector2f startP
 	// attack
 	_attackRight = AnimationRef(new Animation());
 	_attackRight->setSpriteSheet(*_texture);
-	_attackRight->addFrame(KNIGHT_ATTACK_FRAME_1_R);
-	_attackRight->addFrame(KNIGHT_ATTACK_FRAME_2_R);
-	_attackRight->addFrame(KNIGHT_ATTACK_FRAME_3_R);
-	_attackRight->addFrame(KNIGHT_ATTACK_FRAME_4_R);
+	//_attackRight->addFrame(KNIGHT_ATTACK_FRAME_1_R);
+	//_attackRight->addFrame(KNIGHT_ATTACK_FRAME_2_R);
+	//_attackRight->addFrame(KNIGHT_ATTACK_FRAME_3_R);
+	//_attackRight->addFrame(KNIGHT_ATTACK_FRAME_4_R);
 	_attackRight->addFrame(KNIGHT_ATTACK_FRAME_5_R);
 	_attackRight->addFrame(KNIGHT_ATTACK_FRAME_6_R);
 	_attackRight->addFrame(KNIGHT_ATTACK_FRAME_7_R);
 	_attackRight->addFrame(KNIGHT_ATTACK_FRAME_8_R);
-	_attackRight->addFrame(KNIGHT_ATTACK_FRAME_9_R);
-	_attackRight->addFrame(KNIGHT_ATTACK_FRAME_10_R);
+	//_attackRight->addFrame(KNIGHT_ATTACK_FRAME_9_R);
+	//_attackRight->addFrame(KNIGHT_ATTACK_FRAME_10_R);
 	
 	_attackLeft = AnimationRef(new Animation());
 	_attackLeft->setSpriteSheet(*_texture);
-	_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_1_L);
-	_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_2_L);
+	//_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_1_L);
+	//_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_2_L);
 	_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_3_L);
 	_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_4_L);
 	_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_5_L);
 	_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_6_L);
-	_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_7_L);
-	_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_8_L);
-	_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_9_L);
-	_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_10_L);
+	//_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_7_L);
+	//_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_8_L);
+	//_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_9_L);
+	//_attackLeft->addFrame(KNIGHT_ATTACK_FRAME_10_L);
 	
 	// end of animations setup
 	_animatedSprite->play(*_idleRight);

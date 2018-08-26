@@ -13,7 +13,7 @@ typedef std::shared_ptr<Animation> AnimationRef;
 class PlayerAnimations
 {
 	const float _hitPlayTime = 0.4f;
-	const float _attackPlayTime = 1.2f;
+	const float _attackPlayTime = 0.4f;
 	
 	sf::Vector2f _position;
 	sf::Vector2f _animationShift = sf::Vector2f(0.f,0.f);

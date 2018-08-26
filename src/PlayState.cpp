@@ -89,7 +89,7 @@ void ld::PlayState::InitPlayer()
 {
 	_data->assets.LoadTexture(PLAYER_NAME, PLAYER_FILEPATH);
 	_player = std::shared_ptr<Player>(new Player(_data));
-	_player->Init(_data->assets.GetTexture(PLAYER_NAME), sf::Vector2f(19*TILE_SIZE, 4*TILE_SIZE));
+	_player->Init(_data->assets.GetTexture(PLAYER_NAME), sf::Vector2f(2*TILE_SIZE, 3*TILE_SIZE));
 	_player->InitPhysics(_world);
 	_gameObjects.push_back(_player);
 }
@@ -120,21 +120,46 @@ void ld::PlayState::InitCamera()
 
 void ld::PlayState::InitCoins()
 {
-	//AddCoin(17,14);
-	AddCoin(18,14);
-	AddCoin(19,14);
+	AddCoin(9,4);
+	AddCoin(7,4);
+	AddCoin(5,4);
+	AddCoin(30,35);
+	AddCoin(32,35);
+	AddCoin(34,35);
+	AddCoin(36,35);
+	AddCoin(38,35);
+	AddCoin(54,31);
+	AddCoin(49,31);
+	AddCoin(45,29);
+	AddCoin(42,29);
+	AddCoin(56,26);
+	AddCoin(46,22);
+	AddCoin(41,22);
+	AddCoin(32,19);
+	AddCoin(21,27);
+	AddCoin(23,27);
+	AddCoin(25,27);
+	AddCoin(34,7);
+	AddCoin(36,7);
+	AddCoin(38,7);
+	AddCoin(40,7);
+	AddCoin(42,7);
+	//AddCoin();
 }
 
 void ld::PlayState::InitEnemies()
 {
-	auto skel = new Skeleton(_data, sf::Vector2f(25*TILE_SIZE,4*TILE_SIZE),25*TILE_SIZE, 49*TILE_SIZE);
-	skel->InitPhysics(_world);
-	_gameObjects.push_back(GameObjectRef(skel));
+	AddEnemy(30,2,25,48);
+	//AddEnemy(34,7,27,40);
+	AddEnemy(49,17,0,100);
+	AddEnemy(82,3,80,101);
+	// AddEnemy();
 }
 
 void ld::PlayState::InitHP()
 {
-	AddHP(36,35);
+	AddHP(19,36);
+	AddHP(48,18);
 }
 
 void ld::PlayState::InitFinish()
@@ -155,4 +180,11 @@ void ld::PlayState::AddHP(int x, int y)
 
 void ld::PlayState::AddFinish(int x, int y)
 {
+}
+
+void ld::PlayState::AddEnemy(int x, int y, int left, int right)
+{
+	auto skel = new Skeleton(_data, sf::Vector2f(x*TILE_SIZE,y*TILE_SIZE),left*TILE_SIZE, right*TILE_SIZE);
+	skel->InitPhysics(_world);
+	_gameObjects.push_back(GameObjectRef(skel));
 }

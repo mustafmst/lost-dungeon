@@ -75,7 +75,7 @@ void ld::Player::HandleMovement()
 	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Up) && CanJump())
 	{
 		_jumpCooldown = JumpCooldownSecMax;
-		vel.y = -8;
+		vel.y = -9;
 	}
 	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Space)){
 		_player->SetAttack();
