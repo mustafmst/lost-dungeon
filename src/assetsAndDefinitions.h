@@ -12,9 +12,12 @@
 #define GAME_TITLE "Lost Dungeon"
 
 //splash assets
-#define SPLASH_TIME 0.f //1.f
+#define SPLASH_TIME 2.f //1.f
+#define FINISH_TIME 5.f //1.f
 #define SPLASH_BACKGROUND_FILEPATH "./assets/img/splash-bkg.png"
 #define SPLASH_BACKGROUND_NAME "SplashBackground"
+#define FINISH_BACKGROUND_FILEPATH "./assets/img/finish-bkg.png"
+#define FINISH_BACKGROUND_NAME "FinishBackground"
 
 //main menu
 #define FONT_NAME "MainFont"

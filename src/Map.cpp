@@ -14,7 +14,6 @@ void ld::Map::Draw(sf::RenderWindow& window)
 void ld::Map::InitPhysics(b2World& world)
 {
 	InitGround(world);
-	
 }
 
 void ld::Map::Init(std::string filePath)
@@ -37,6 +36,7 @@ void ld::Map::InitGround(b2World & world)
 				b2BodyDef def2;
 				def2.position = b2Vec2((x*16.f)/F_SCALE, (y*16.f)/F_SCALE);
 				def2.type = b2_staticBody;
+				def2.userData = this;
 				b2Body* body = std::move(world.CreateBody(&def2));
 				
 				b2PolygonShape box2;
@@ -83,4 +83,9 @@ void ld::Map::InitGoldLayer(b2World& world)
 sf::Vector2f ld::Map::GetPosition()
 {
 	return sf::Vector2f();
+}
+
+ld::Map::Map()
+{
+	_type = MAP;
 }

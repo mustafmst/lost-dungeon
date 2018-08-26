@@ -20,7 +20,10 @@ void ld::ContactListener::BeginContact(b2Contact* contact)
 		}
 		if(other->_type == COIN) HandleCoinCollect(player, other);
 		if(other->_type == HP) HandlePotionCollect(player, other);
+		if(other->_type == FINISH) HandleFinish(player, other);
+		if(other->_type == DOUBLE_JUMP) HandleDoubleJumpAddition(player, other);
 		if(other->_type == ENEMY) HandleEnemyCollision(player, other);
+		if(other->_type == MAP) HandleMapCollision(player);
 	}
 }
 
@@ -45,4 +48,21 @@ void ld::ContactListener::HandlePotionCollect(Player* player, GameObject* other)
 {
 	player->Heal(100.f);
 	other->_forDestroy = true;
+}
+
+void ld::ContactListener::HandleFinish(Player* player, GameObject* other)
+{
+	player->FinishGame();
+	other->_forDestroy = true;
+}
+
+void ld::ContactListener::HandleDoubleJumpAddition(Player* player, GameObject* other)
+{
+	player->UnlockDoubleJump();
+	other->_forDestroy = true;
+}
+
+void ld::ContactListener::HandleMapCollision(Player* player)
+{
+	player->ResetJump();
 }

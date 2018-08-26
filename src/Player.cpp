@@ -6,6 +6,7 @@
 #include "knightAnimations.h"
 #include "PlayState.hpp"
 #include "Skeleton.hpp"
+#include "FinishState.hpp"
 
 void ld::Player::Update(float delta)
 {
@@ -72,10 +73,17 @@ void ld::Player::HandleMovement()
 		moveDirection += 1;
 	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Left))
 		moveDirection-=1;
-	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Up) && CanJump())
+	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Up))
 	{
-		_jumpCooldown = JumpCooldownSecMax;
-		vel.y = -9;
+		if(CanJump())
+		{
+			_jumpCooldown = JumpCooldownSecMax;
+			vel.y = -9;
+		} else if(_secondJump && _jumpCooldown <= 0){
+			_secondJump = false;
+			_jumpCooldown = JumpCooldownSecMax;
+			vel.y = -9;
+		}
 	}
 	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Space)){
 		_player->SetAttack();
@@ -133,7 +141,6 @@ sf::Vector2f ld::Player::GetPosition()
 
 ld::Player::~Player()
 {
-	_playerBody->GetWorld()->DestroyBody(_playerBody);
 }
 
 void ld::Player::GiveCoin()
@@ -171,4 +178,19 @@ void ld::Player::Attack()
 void ld::Player::Heal(float points)
 {
 	_data->playerInfo.ChangeHealth(points);
+}
+
+void ld::Player::FinishGame()
+{
+	_data->stateMachine.AddState(GameStateRef(new FinishState(_data)), true);
+}
+
+void ld::Player::UnlockDoubleJump()
+{
+	_jumpUnlocked = true;
+}
+
+void ld::Player::ResetJump()
+{
+	if(_jumpUnlocked) _secondJump = true;
 }

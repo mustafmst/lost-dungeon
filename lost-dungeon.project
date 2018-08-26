@@ -28,6 +28,8 @@
       <File Name="src/AssetManager.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="States">
+      <File Name="src/FinishState.cpp"/>
+      <File Name="src/FinishState.hpp"/>
       <File Name="src/GameOver.cpp"/>
       <File Name="src/GameOver.hpp"/>
       <File Name="src/SplashState.hpp"/>
@@ -48,6 +50,10 @@
         <File Name="src/Skeleton.hpp"/>
       </VirtualDirectory>
       <VirtualDirectory Name="Collectibles">
+        <File Name="src/DoubleJump.cpp"/>
+        <File Name="src/DoubleJump.hpp"/>
+        <File Name="src/Finish.cpp"/>
+        <File Name="src/Finish.hpp"/>
         <File Name="src/Collectible.cpp"/>
         <File Name="src/Collectible.hpp"/>
         <File Name="src/HealthPotion.cpp"/>

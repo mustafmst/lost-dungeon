@@ -15,8 +15,7 @@ namespace ld
 		void InitGround(b2World & world);
 		void InitGoldLayer(b2World & world);
 	public:
-		Map() {}
-		~Map() {}
+		Map();
 		void Init(std::string filePath);
 		void Update(float delta);
 		void Draw(sf::RenderWindow & window);

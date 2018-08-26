@@ -13,7 +13,7 @@ void ld::SplashState::Init()
 void ld::SplashState::Update(float delta)
 {
 	_elapsedTime += delta;
-	if(_elapsedTime > SPLASH_TIME)
+	if(_elapsedTime > _timeToFinish)
 	{
 		auto color = _background.getColor();
 		color.a -= 0.5*delta;

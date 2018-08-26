@@ -3,3 +3,6 @@
 #define ENEMY "Enemy"
 #define COIN "Coin"
 #define HP "hp"
+#define FINISH "finish"
+#define DOUBLE_JUMP "double jump"
+#define MAP "map"

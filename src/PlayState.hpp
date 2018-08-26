@@ -27,6 +27,7 @@ namespace ld
 		void InitPlayer();
 		void InitMap(std::string mapFilePath);
 		void InitCoins();
+		void InitDoubleJump();
 		void InitHP();
 		void InitFinish();
 		void InitEnemies();
@@ -34,7 +35,7 @@ namespace ld
 		void UpdateCamera();
 		void AddCoin(int x, int y);
 		void AddHP(int x, int y);
-		void AddFinish(int x, int y);
+		void AddFinish();
 		void AddEnemy(int x, int y, int left, int right);
 	public:
 		PlayState(GameDataRef data, std::string mapFilePath): _data(data), _mapName(mapFilePath), _world(b2Vec2(0.f,9.8f)) {}

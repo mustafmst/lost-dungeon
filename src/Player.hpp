@@ -10,13 +10,15 @@ namespace ld
 	class Player : public GameObject
 	{
 	private:
-		const float JumpCooldownSecMax = 0.5f;
+		const float JumpCooldownSecMax = 0.6f;
 		float _damage = 60.f;
+		bool _jumpUnlocked = false;
 	
 		std::shared_ptr<PlayerAnimations> _player;
 		b2Body* _playerBody;
 		GameDataRef _data;
 		bool _isFacigRight = true;
+		bool _secondJump = false;
 		b2Vec2 _lastVelocity;
 		float _jumpCooldown = 0.f;
 		
@@ -40,6 +42,9 @@ namespace ld
 		void GiveCoin();
 		void Hurt(float points);
 		void Heal(float points);
+		void FinishGame();
+		void UnlockDoubleJump();
+		void ResetJump();
 		b2Vec2 GetDirection();
 	};
 }

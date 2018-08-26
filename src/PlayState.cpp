@@ -6,6 +6,8 @@
 #include "GoldCoin.hpp"
 #include "Skeleton.hpp"
 #include "HealthPotion.hpp"
+#include "Finish.hpp"
+#include "DoubleJump.hpp"
 
 void ld::PlayState::Init()
 {
@@ -20,6 +22,7 @@ void ld::PlayState::Init()
 	InitCamera();
 	InitHP();
 	InitCoins();
+	InitDoubleJump();
 	InitEnemies();
 	InitFinish();
 }
@@ -89,7 +92,7 @@ void ld::PlayState::InitPlayer()
 {
 	_data->assets.LoadTexture(PLAYER_NAME, PLAYER_FILEPATH);
 	_player = std::shared_ptr<Player>(new Player(_data));
-	_player->Init(_data->assets.GetTexture(PLAYER_NAME), sf::Vector2f(2*TILE_SIZE, 3*TILE_SIZE));
+	_player->Init(_data->assets.GetTexture(PLAYER_NAME), sf::Vector2f(102*TILE_SIZE, 30*TILE_SIZE));
 	_player->InitPhysics(_world);
 	_gameObjects.push_back(_player);
 }
@@ -164,6 +167,7 @@ void ld::PlayState::InitHP()
 
 void ld::PlayState::InitFinish()
 {
+	AddFinish();
 }
 
 void ld::PlayState::AddCoin(int x, int y)
@@ -178,13 +182,21 @@ void ld::PlayState::AddHP(int x, int y)
 	_gameObjects.push_back(hp);
 }
 
-void ld::PlayState::AddFinish(int x, int y)
+void ld::PlayState::AddFinish()
 {
-}
+	auto finish = std::shared_ptr<Finish>(new Finish(_data, sf::Vector2f(98*16,30*16), _world));
+	_gameObjects.push_back(finish);
+};
 
 void ld::PlayState::AddEnemy(int x, int y, int left, int right)
 {
 	auto skel = new Skeleton(_data, sf::Vector2f(x*TILE_SIZE,y*TILE_SIZE),left*TILE_SIZE, right*TILE_SIZE);
 	skel->InitPhysics(_world);
 	_gameObjects.push_back(GameObjectRef(skel));
+}
+
+void ld::PlayState::InitDoubleJump()
+{
+	auto dj = new DoubleJump(_data, sf::Vector2f(104*16,47*16), _world);
+	_gameObjects.push_back(GameObjectRef(dj));
 }
