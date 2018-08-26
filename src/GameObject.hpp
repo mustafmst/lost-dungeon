@@ -18,6 +18,7 @@ namespace ld
 		virtual void Update(float delta) = 0;
 		virtual void Draw(sf::RenderWindow & window) = 0;
 		virtual void InitPhysics(b2World & world) = 0;
+		virtual sf::Vector2f GetPosition() = 0;
 	};
 	typedef std::shared_ptr<GameObject> GameObjectRef;
 }

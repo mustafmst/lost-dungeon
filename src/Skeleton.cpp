@@ -77,3 +77,13 @@ float ld::Skeleton::GetDamage()
 {
 	return _damage;
 }
+
+sf::Vector2f ld::Skeleton::GetPosition()
+{
+	return _skeleton.getPosition();
+}
+
+ld::Skeleton::~Skeleton()
+{
+	_body->GetWorld()->DestroyBody(_body);
+}

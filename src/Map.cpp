@@ -79,3 +79,8 @@ void ld::Map::InitGoldLayer(b2World& world)
 		}
 	}
 }
+
+sf::Vector2f ld::Map::GetPosition()
+{
+	return sf::Vector2f();
+}

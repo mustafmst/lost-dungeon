@@ -51,3 +51,8 @@ ld::GoldCoin::~GoldCoin()
 {
 	_body->GetWorld()->DestroyBody(_body);
 }
+
+sf::Vector2f ld::GoldCoin::GetPosition()
+{
+	return _sprite.getPosition();
+}

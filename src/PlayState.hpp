@@ -18,7 +18,6 @@ namespace ld
 		GameDataRef _data;
 		b2World _world;
 		std::shared_ptr<Player> _player;
-		std::vector<GameObjectRef> _gameObjects;
 		Map _map;
 		std::string _mapName;
 		std::unique_ptr<sf::View> _camera;

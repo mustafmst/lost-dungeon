@@ -21,6 +21,7 @@ namespace ld
 		
 		bool CanJump();
 		void SetSpriteDirection();
+		void Attack();
 	public:
 		Player(GameDataRef data): _data(data) 
 		{

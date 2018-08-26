@@ -21,6 +21,7 @@ namespace ld
 		void Update(float delta);
 		void Draw(sf::RenderWindow & window);
 		void InitPhysics(b2World & world);
+		sf::Vector2f GetPosition();
 	};
 }
 

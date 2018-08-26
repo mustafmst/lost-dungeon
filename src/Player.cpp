@@ -4,6 +4,8 @@
 #include <iostream>
 #include "GameOver.hpp"
 #include "knightAnimations.h"
+#include "PlayState.hpp"
+#include "Skeleton.hpp"
 
 void ld::Player::Update(float delta)
 {
@@ -16,6 +18,7 @@ void ld::Player::Update(float delta)
 		(_playerBody->GetPosition().y*F_SCALE)-11.f)
 	);
 	_lastVelocity = _playerBody->GetLinearVelocity();
+	if(_player->IsAttacking()) Attack();
 	if(_data->playerInfo.GameIsOver())
 	{
 		_data->stateMachine.AddState(GameStateRef(new GameOver(_data)), true);
@@ -73,6 +76,9 @@ void ld::Player::HandleMovement()
 	{
 		_jumpCooldown = JumpCooldownSecMax;
 		vel.y = -10;
+	}
+	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Space)){
+		_player->SetAttack();
 	}
 	switch(moveDirection)
 	{
@@ -146,4 +152,17 @@ void ld::Player::Hurt(float points)
 {
 	_data->playerInfo.ChangeHealth(-points);
 	_player->SetIsHit();
+}
+
+void ld::Player::Attack()
+{
+	auto state = dynamic_cast<GameStateRef&>(_data->stateMachine.CurrentState());
+	if(state == nullptr) return;
+	for(auto o: state->_gameObjects)
+	{
+		if(o->_type == ENEMY && (b2Vec2(o->GetPosition().x, o->GetPosition().y) - b2Vec2(GetPosition().x,GetPosition().y)).Length() < 20.f)
+		{
+			o->_forDestroy = true;
+		}
+	}
 }

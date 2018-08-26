@@ -17,11 +17,12 @@ class Skeleton: public GameObject
 	void Move();
 public:
 	Skeleton(GameDataRef data, sf::Vector2f startPos, float left, float right);
-	~Skeleton(){};
+	~Skeleton();
 	
 	void Update(float delta);
 	void Draw(sf::RenderWindow & window);
 	void InitPhysics(b2World & world);
+	sf::Vector2f GetPosition();
 	float GetDamage();
 };
 

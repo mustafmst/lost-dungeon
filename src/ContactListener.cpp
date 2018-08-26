@@ -29,7 +29,7 @@ void ld::ContactListener::EndContact(b2Contact* contact)
 
 bool ld::ContactListener::HandleCoinCollect(Player* player, GameObject* other)
 {
-	auto coin = dynamic_cast<GoldCoin*>(other);
+	auto coin = static_cast<GoldCoin*>(other);
 	if(coin == nullptr) return false;
 	player->GiveCoin();
 	coin->_forDestroy = true;
@@ -38,7 +38,7 @@ bool ld::ContactListener::HandleCoinCollect(Player* player, GameObject* other)
 
 bool ld::ContactListener::HandleEnemyCollision(Player* player, GameObject* other)
 {
-	auto enemy = dynamic_cast<Skeleton*>(other);
+	auto enemy = static_cast<Skeleton*>(other);
 	if(enemy == nullptr) return false;
 	player->Hurt(enemy->GetDamage());
 	return true;
