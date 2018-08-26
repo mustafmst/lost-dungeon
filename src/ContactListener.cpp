@@ -18,8 +18,8 @@ void ld::ContactListener::BeginContact(b2Contact* contact)
 			other = A;
 			if(player == nullptr) return;
 		}
-		if(HandleCoinCollect(player, other)) return;
-		if(HandleEnemyCollision(player, other)) return;
+		if(other->_type == COIN) if(HandleCoinCollect(player, other)) return;
+		if(other->_type == ENEMY) if(HandleEnemyCollision(player, other)) return;
 	}
 }
 

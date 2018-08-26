@@ -9,7 +9,9 @@ class GoldCoin: public GameObject
 	sf::Sprite _sprite;
 	b2Body* _body;
 public:
-	GoldCoin(){};
+	GoldCoin(){
+		_type = COIN;
+	};
 	~GoldCoin();
 	void SetPosition(float x, float y);
 	void Init(sf::Texture & texture);

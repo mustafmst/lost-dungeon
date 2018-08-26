@@ -41,6 +41,9 @@
     <VirtualDirectory Name="GameObjects">
       <File Name="src/gameObjectTypes.h"/>
       <VirtualDirectory Name="Skeleton">
+        <File Name="src/skeletonAnimation.h"/>
+        <File Name="src/SkeletonAnimations.cpp"/>
+        <File Name="src/SkeletonAnimations.hpp"/>
         <File Name="src/Skeleton.cpp"/>
         <File Name="src/Skeleton.hpp"/>
       </VirtualDirectory>

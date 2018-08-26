@@ -33,4 +33,4 @@
 #define GEMS_NAME "gems"
 #define GEMS_FILEPATH "./assets/img/gems.png"
 #define SKELETON_IDLE_NAME "skeleton-idle"
-#define SKELETON_IDLE_FILEPATH "./assets/img/Skeleton Idle.png"
+#define SKELETON_IDLE_FILEPATH "./assets/img/skeleton-sprites.png"

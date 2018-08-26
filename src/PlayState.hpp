@@ -33,6 +33,7 @@ namespace ld
 		void AddCoin(float x, float y);
 	public:
 		PlayState(GameDataRef data, std::string mapFilePath): _data(data), _mapName(mapFilePath), _world(b2Vec2(0.f,9.8f)) {}
+		std::vector<GameObjectRef> _gameObjects;
 		void Init();
 		void Update(float delta);
 		void Draw();

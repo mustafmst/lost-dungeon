@@ -75,7 +75,7 @@ void ld::Player::HandleMovement()
 	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Up) && CanJump())
 	{
 		_jumpCooldown = JumpCooldownSecMax;
-		vel.y = -10;
+		vel.y = -8;
 	}
 	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Space)){
 		_player->SetAttack();
@@ -156,13 +156,14 @@ void ld::Player::Hurt(float points)
 
 void ld::Player::Attack()
 {
-	auto state = dynamic_cast<GameStateRef&>(_data->stateMachine.CurrentState());
+	auto state = dynamic_cast<PlayState*>(_data->stateMachine.CurrentState().get());
 	if(state == nullptr) return;
 	for(auto o: state->_gameObjects)
 	{
 		if(o->_type == ENEMY && (b2Vec2(o->GetPosition().x, o->GetPosition().y) - b2Vec2(GetPosition().x,GetPosition().y)).Length() < 20.f)
 		{
-			o->_forDestroy = true;
+			auto enemy = dynamic_cast<Skeleton*>(o.get());
+			enemy->Hurt(_damage);
 		}
 	}
 }

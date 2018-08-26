@@ -4,30 +4,31 @@
 
 void ld::Skeleton::Update(float delta)
 {
-	_skeleton.setPosition(
+	_skeleton->SetPos(sf::Vector2f(
 		_body->GetPosition().x*F_SCALE,
-		(_body->GetPosition().y*F_SCALE)-11.f
+		(_body->GetPosition().y*F_SCALE)-11.f)
 	);
 	Move();
 	if(_goRight)
 	{
-		_skeleton.setTextureRect(sf::IntRect(0,0,16,32));
+		_skeleton->SetIsMovingRight(true);
 	} else {
-		_skeleton.setTextureRect(sf::IntRect(16,0,-16,32));
+		_skeleton->SetIsMovingRight(false);
 	}
+	_skeleton->Update(delta);
 }
 
 void ld::Skeleton::Draw(sf::RenderWindow& window)
 {
-	window.draw(_skeleton);
+	_skeleton->Draw(window);
 }
 
 void ld::Skeleton::InitPhysics(b2World& world)
 {
 	b2BodyDef skeletonBodyDefinition;
 	skeletonBodyDefinition.position = b2Vec2(
-		_skeleton.getPosition().x/F_SCALE,
-		_skeleton.getPosition().y/F_SCALE
+		_skeleton->GetPos().x/F_SCALE,
+		_skeleton->GetPos().y/F_SCALE
 	);
 	skeletonBodyDefinition.type = b2_dynamicBody;
 	skeletonBodyDefinition.userData = this;
@@ -49,14 +50,12 @@ ld::Skeleton::Skeleton(GameDataRef data, sf::Vector2f startPos, float left, floa
 	_right(right)
 {
 	_type = ENEMY;
-	_skeleton.setTexture(_data->assets.GetTexture(SKELETON_IDLE_NAME));
-	_skeleton.setPosition(startPos);
-	_skeleton.setTextureRect(sf::IntRect(0,0,16,32));
+	_skeleton = std::shared_ptr<SkeletonAnimations>(new SkeletonAnimations(_data->assets.GetTexture(SKELETON_IDLE_NAME), startPos));
 }
 
 void ld::Skeleton::Move()
 {
-	auto xPos = _skeleton.getPosition().x;
+	auto xPos = _skeleton->GetPos().x;
 	if(_body->GetLinearVelocity().x == 0)
 	{
 		_goRight = !_goRight;
@@ -80,10 +79,16 @@ float ld::Skeleton::GetDamage()
 
 sf::Vector2f ld::Skeleton::GetPosition()
 {
-	return _skeleton.getPosition();
+	return _skeleton->GetPos();
 }
 
 ld::Skeleton::~Skeleton()
 {
 	_body->GetWorld()->DestroyBody(_body);
+}
+
+void ld::Skeleton::Hurt(float points)
+{
+	_life -= points;
+	if(_life <= 0.f) _forDestroy = true;
 }

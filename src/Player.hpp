@@ -11,6 +11,7 @@ namespace ld
 	{
 	private:
 		const float JumpCooldownSecMax = 0.5f;
+		float _damage = 60.f;
 	
 		std::shared_ptr<PlayerAnimations> _player;
 		b2Body* _playerBody;
