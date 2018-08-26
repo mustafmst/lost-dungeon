@@ -2,6 +2,8 @@
 #include <memory>
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
+#include <string>
+#include "gameObjectTypes.h"
 
 namespace ld
 {
@@ -10,6 +12,7 @@ namespace ld
 	public:
 		GameObject() {}
 		~GameObject() {}
+		std::string _type = GAME_OBJECT;
 		bool _forDestroy = false;
 		bool ForDestroy(){return _forDestroy;};
 		virtual void Update(float delta) = 0;

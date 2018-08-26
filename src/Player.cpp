@@ -10,7 +10,7 @@ void ld::Player::Update(float delta)
 	_player->Update(delta);
 	if(_jumpCooldown > 0) _jumpCooldown-=delta;
 	HandleMovement();
-	if(CanJump() && _lastVelocity.y > 15.f) _data->playerInfo.ChangeHealth(-50.f);
+	if(CanJump() && _lastVelocity.y > 15.f) Hurt(50.f);
 	_player->SetPos(sf::Vector2f(
 		_playerBody->GetPosition().x*F_SCALE,
 		(_playerBody->GetPosition().y*F_SCALE)-11.f)
@@ -40,7 +40,7 @@ void ld::Player::InitPhysics(b2World& world)
 	_playerBody->SetFixedRotation(true);
 	
 	b2PolygonShape boxShape;
-	boxShape.SetAsBox(8.f/F_SCALE,17.f/F_SCALE);
+	boxShape.SetAsBox(6.f/F_SCALE,17.f/F_SCALE);
 	b2FixtureDef boxFixtureDef;
 	boxFixtureDef.shape = &boxShape;
 	boxFixtureDef.density = 1;
@@ -97,7 +97,7 @@ void ld::Player::HandleMovement()
 			_player->SetIsMoving(false);
 			break;
 	}
-	if(vel.y == 0 && moveState != STOP) vel.y = -0.1f;
+	if(vel.y == 0 && moveState != STOP) vel.y = -0.2f;
 	_playerBody->SetLinearVelocity( vel );
 	SetSpriteDirection();
 }
@@ -145,4 +145,5 @@ b2Vec2 ld::Player::GetDirection()
 void ld::Player::Hurt(float points)
 {
 	_data->playerInfo.ChangeHealth(-points);
+	_player->SetIsHit();
 }

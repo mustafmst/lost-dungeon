@@ -39,6 +39,7 @@
       <File Name="src/GameState.hpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="GameObjects">
+      <File Name="src/gameObjectTypes.h"/>
       <VirtualDirectory Name="Skeleton">
         <File Name="src/Skeleton.cpp"/>
         <File Name="src/Skeleton.hpp"/>

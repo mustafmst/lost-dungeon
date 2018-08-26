@@ -48,6 +48,7 @@ ld::Skeleton::Skeleton(GameDataRef data, sf::Vector2f startPos, float left, floa
 	_left(left),
 	_right(right)
 {
+	_type = ENEMY;
 	_skeleton.setTexture(_data->assets.GetTexture(SKELETON_IDLE_NAME));
 	_skeleton.setPosition(startPos);
 	_skeleton.setTextureRect(sf::IntRect(0,0,16,32));

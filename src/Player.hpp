@@ -22,7 +22,10 @@ namespace ld
 		bool CanJump();
 		void SetSpriteDirection();
 	public:
-		Player(GameDataRef data): _data(data) {}
+		Player(GameDataRef data): _data(data) 
+		{
+			_type = PLAYER;
+		}
 		~Player();
 		
 		void Init(sf::Texture & texture, sf::Vector2f startPos);

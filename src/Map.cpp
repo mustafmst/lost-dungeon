@@ -40,7 +40,7 @@ void ld::Map::InitGround(b2World & world)
 				b2Body* body = std::move(world.CreateBody(&def2));
 				
 				b2PolygonShape box2;
-				box2.SetAsBox(8.1f/F_SCALE,8.1f/F_SCALE);
+				box2.SetAsBox(8.f/F_SCALE,8.f/F_SCALE);
 				b2FixtureDef box2Fix;
 				box2Fix.shape = &box2;
 				box2Fix.density = 0.50f;
