@@ -92,7 +92,7 @@ void ld::PlayState::InitPlayer()
 {
 	_data->assets.LoadTexture(PLAYER_NAME, PLAYER_FILEPATH);
 	_player = std::shared_ptr<Player>(new Player(_data));
-	_player->Init(_data->assets.GetTexture(PLAYER_NAME), sf::Vector2f(102*TILE_SIZE, 30*TILE_SIZE));
+	_player->Init(_data->assets.GetTexture(PLAYER_NAME), sf::Vector2f(2*TILE_SIZE, 3*TILE_SIZE));
 	_player->InitPhysics(_world);
 	_gameObjects.push_back(_player);
 }
@@ -147,22 +147,34 @@ void ld::PlayState::InitCoins()
 	AddCoin(38,7);
 	AddCoin(40,7);
 	AddCoin(42,7);
-	//AddCoin();
+	AddCoin(62,12);
+	AddCoin(64,12);
+	AddCoin(74,9);
+	AddCoin(78,6);
+	AddCoin(109,8);
+	AddCoin(141,16);
+	AddCoin(142,16);
+	AddCoin(143,16);
+	AddCoin(144,16);
+	AddCoin(145,16);
+	AddCoin(146,16);
+	AddCoin(147,16);
 }
 
 void ld::PlayState::InitEnemies()
 {
 	AddEnemy(30,2,25,48);
-	//AddEnemy(34,7,27,40);
 	AddEnemy(49,17,0,100);
 	AddEnemy(82,3,80,101);
-	// AddEnemy();
+	AddEnemy(82,3,80,101);
+	AddEnemy(126,47,80,130);
 }
 
 void ld::PlayState::InitHP()
 {
 	AddHP(19,36);
 	AddHP(48,18);
+	AddHP(128,48);
 }
 
 void ld::PlayState::InitFinish()
