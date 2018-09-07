@@ -34,3 +34,13 @@ int ld::PlayerInfoManager::GetCoins()
 {
 	return _coins;
 }
+
+void ld::PlayerInfoManager::UnlockDoubleJump()
+{
+	_doubleJumpUnlocked = true;
+}
+
+bool ld::PlayerInfoManager::CanDoubleJump()
+{
+	return _doubleJumpUnlocked;
+}

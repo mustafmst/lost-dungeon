@@ -2,6 +2,8 @@
 #include "GameData.h"
 #include "GameObject.hpp"
 #include "SkeletonAnimations.hpp"
+#include <string>
+#include <sstream>
 
 namespace ld
 {
@@ -25,6 +27,7 @@ public:
 	void Draw(sf::RenderWindow & window);
 	void InitPhysics(b2World & world);
 	sf::Vector2f GetPosition();
+	std::string GetSaveData();
 	float GetDamage();
 	void Hurt(float points);
 };

@@ -1,29 +1,85 @@
 [{
   "directory": "/home/pawel/studia/cpp/lost-dungeon",
-  "command": "/usr/bin/g++ -O2 -std=c++14 -std=c++11 -Wall -DNDEBUG -I. -I. -MG -MP -MT./Release/src_Player.cpp.o -MF./Release/src_Player.cpp.o.d -MM src/Player.cpp",
-  "file": "/home/pawel/studia/cpp/lost-dungeon/src/Player.cpp"
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/GameOver.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_GameOver.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/GameOver.cpp"
  }, {
   "directory": "/home/pawel/studia/cpp/lost-dungeon",
-  "command": "/usr/bin/g++ -O2 -std=c++14 -std=c++11 -Wall -DNDEBUG -I. -I. -MG -MP -MT./Release/src_SaveModule.cpp.o -MF./Release/src_SaveModule.cpp.o.d -MM src/SaveModule.cpp",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/SaveModule.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_SaveModule.cpp.o -I. -I. -I./../include",
   "file": "/home/pawel/studia/cpp/lost-dungeon/src/SaveModule.cpp"
  }, {
   "directory": "/home/pawel/studia/cpp/lost-dungeon",
-  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/SaveModule.cpp -O2 -std=c++14 -std=c++11 -Wall -DNDEBUG -o ./Release/src_SaveModule.cpp.o -I. -I.",
-  "file": "/home/pawel/studia/cpp/lost-dungeon/src/SaveModule.cpp"
- }, {
-  "directory": "/home/pawel/studia/cpp/lost-dungeon",
-  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/Game.cpp -O2 -std=c++14 -std=c++11 -Wall -DNDEBUG -o ./Release/src_Game.cpp.o -I. -I.",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/Game.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_Game.cpp.o -I. -I. -I./../include",
   "file": "/home/pawel/studia/cpp/lost-dungeon/src/Game.cpp"
  }, {
   "directory": "/home/pawel/studia/cpp/lost-dungeon",
-  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/PlayState.cpp -O2 -std=c++14 -std=c++11 -Wall -DNDEBUG -o ./Release/src_PlayState.cpp.o -I. -I.",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/Skeleton.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_Skeleton.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/Skeleton.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/PlayState.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_PlayState.cpp.o -I. -I. -I./../include",
   "file": "/home/pawel/studia/cpp/lost-dungeon/src/PlayState.cpp"
  }, {
   "directory": "/home/pawel/studia/cpp/lost-dungeon",
-  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/MainMenu.cpp -O2 -std=c++14 -std=c++11 -Wall -DNDEBUG -o ./Release/src_MainMenu.cpp.o -I. -I.",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/ContactListener.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_ContactListener.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/ContactListener.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/FinishState.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_FinishState.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/FinishState.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/PlayerInfoManager.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_PlayerInfoManager.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/PlayerInfoManager.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/Finish.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_Finish.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/Finish.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/SplashState.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_SplashState.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/SplashState.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/HUD.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_HUD.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/HUD.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/AnimatedSprite.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_AnimatedSprite.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/AnimatedSprite.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/MainMenu.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_MainMenu.cpp.o -I. -I. -I./../include",
   "file": "/home/pawel/studia/cpp/lost-dungeon/src/MainMenu.cpp"
  }, {
   "directory": "/home/pawel/studia/cpp/lost-dungeon",
-  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/Player.cpp -O2 -std=c++14 -std=c++11 -Wall -DNDEBUG -o ./Release/src_Player.cpp.o -I. -I.",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/GoldCoin.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_GoldCoin.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/GoldCoin.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/Animation.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_Animation.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/Animation.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/Collectible.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_Collectible.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/Collectible.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/SkeletonAnimations.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_SkeletonAnimations.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/SkeletonAnimations.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/DoubleJump.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_DoubleJump.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/DoubleJump.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/main.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_main.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/main.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/Player.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_Player.cpp.o -I. -I. -I./../include",
   "file": "/home/pawel/studia/cpp/lost-dungeon/src/Player.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/HealthPotion.cpp -g -O0 -std=c++14 -std=c++11 -Wall -o ./Debug/src_HealthPotion.cpp.o -I. -I. -I./../include",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/HealthPotion.cpp"
  }]

@@ -213,3 +213,22 @@ void ld::PlayState::InitDoubleJump()
 	auto dj = new DoubleJump(_data, sf::Vector2f(104*16,47*16), _world);
 	_gameObjects.push_back(GameObjectRef(dj));
 }
+
+void ld::PlayState::LoadPlayer(float x, float y)
+{
+}
+
+void ld::PlayState::LoadSkeleton(float x, float y, float left, float right)
+{
+	auto skel = new Skeleton(_data, sf::Vector2f(x,y),left, right);
+	skel->InitPhysics(_world);
+	_gameObjects.push_back(GameObjectRef(skel));
+}
+
+void ld::PlayState::LoadGold(float x, float y)
+{
+}
+
+void ld::PlayState::LoadHP(float x, float y)
+{
+}

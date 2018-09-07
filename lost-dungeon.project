@@ -7,6 +7,7 @@
   </Plugins>
   <VirtualDirectory Name="src">
     <VirtualDirectory Name="Engine">
+      <File Name="src/SaveConfig.h"/>
       <File Name="src/GameObjectsCodes.h"/>
       <File Name="src/SaveModule.cpp"/>
       <File Name="src/SaveModule.hpp"/>

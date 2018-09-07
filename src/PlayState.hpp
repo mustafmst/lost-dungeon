@@ -43,6 +43,10 @@ namespace ld
 		void Init();
 		void Update(float delta);
 		void Draw();
+		void LoadPlayer(float x, float y);
+		void LoadSkeleton(float x, float y, float left, float right);
+		void LoadGold(float x, float y);
+		void LoadHP(float x, float y);
 	};
 }
 

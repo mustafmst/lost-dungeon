@@ -12,18 +12,19 @@ using namespace std;
 
 class GameObject;
 class GameData;
+class PlayState;
 typedef std::shared_ptr<GameData> GameDataRef;
 
 class SaveModule
 {
 	bool _saveExists = false;
-	map<string, function<shared_ptr<GameObject>(float,float)>> _objectCreators;
+	map<string, function<void(float,float, PlayState&)>> _objectCreators;
 	GameDataRef _data;
 	
-	static shared_ptr<GameObject> CreatePlayer(float x, float y);
-	static shared_ptr<GameObject> CreateSkeleton(float x, float y);
-	static shared_ptr<GameObject> CreateGold(float x, float y);
-	static shared_ptr<GameObject> CreatePotion(float x, float y);
+	static void CreatePlayer(float x, float y, PlayState& playState);
+	static void CreateSkeleton(float x, float y, float left, float right, PlayState& playState);
+	static void CreateGold(float x, float y, PlayState& playState);
+	static void CreatePotion(float x, float y, PlayState& playState);
 public:
 	SaveModule();
 	~SaveModule();

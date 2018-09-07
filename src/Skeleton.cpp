@@ -1,5 +1,6 @@
 #include "Skeleton.hpp"
 #include "assetsAndDefinitions.h"
+#include "GameObjectsCodes.h"
 
 
 void ld::Skeleton::Update(float delta)
@@ -91,4 +92,11 @@ void ld::Skeleton::Hurt(float points)
 {
 	_life -= points;
 	if(_life <= 0.f) _forDestroy = true;
+}
+
+std::string ld::Skeleton::GetSaveData()
+{
+	std::stringstream stream;
+	stream << SKELETON_CODE << " " << GetPosition().x << " "<< GetPosition().y << " " << _left << " " << _right;
+	return stream.str();
 }

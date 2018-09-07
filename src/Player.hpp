@@ -4,6 +4,7 @@
 #include "InputManager.hpp"
 #include "GameData.h"
 #include "PlayerAnimations.hpp"
+#include <string>
 
 namespace ld
 {
@@ -12,7 +13,6 @@ namespace ld
 	private:
 		const float JumpCooldownSecMax = 0.6f;
 		float _damage = 60.f;
-		bool _jumpUnlocked = false;
 	
 		std::shared_ptr<PlayerAnimations> _player;
 		b2Body* _playerBody;
@@ -36,6 +36,7 @@ namespace ld
 		void Update(float delta);
 		void Draw(sf::RenderWindow & window);
 		void InitPhysics(b2World & world);
+		std::string GetSaveData();
 		
 		sf::Vector2f GetPosition();
 		void HandleMovement();

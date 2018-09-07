@@ -7,6 +7,8 @@
 #include "PlayState.hpp"
 #include "Skeleton.hpp"
 #include "FinishState.hpp"
+#include "GameObjectsCodes.h"
+#include <sstream>
 
 void ld::Player::Update(float delta)
 {
@@ -189,10 +191,17 @@ void ld::Player::FinishGame()
 
 void ld::Player::UnlockDoubleJump()
 {
-	_jumpUnlocked = true;
+	_data->playerInfo.UnlockDoubleJump();
 }
 
 void ld::Player::ResetJump()
 {
-	if(_jumpUnlocked) _secondJump = true;
+	if(_data->playerInfo.CanDoubleJump()) _secondJump = true;
+}
+
+std::string ld::Player::GetSaveData()
+{
+	std::stringstream stream;
+	stream << PLAYER_CODE << " " << GetPosition().x << " "<< GetPosition().y;
+	return stream.str();
 }

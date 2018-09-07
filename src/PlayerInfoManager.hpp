@@ -9,6 +9,7 @@ class PlayerInfoManager
 	float _health = 100.f;
 	const float HealthMax = 100.f;
 	const float HealthMin = 0.f;
+	bool _doubleJumpUnlocked = false;
 public:
 	PlayerInfoManager(){};
 	~PlayerInfoManager(){};
@@ -18,6 +19,8 @@ public:
 	int GetCoins();
 	bool GameIsOver();
 	void Reset();
+	void UnlockDoubleJump();
+	bool CanDoubleJump();
 };
 
 }
