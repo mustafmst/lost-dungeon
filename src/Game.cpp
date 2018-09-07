@@ -14,6 +14,7 @@ namespace ld
 	{
 		_data->window.create(sf::VideoMode(_width, _height), _title);
 		_data->window.setFramerateLimit(FRAME_RATE);
+		_data->save.SetData(_data);
 #if DEBUG
 			_data->stateMachine.AddState(GameStateRef(new PlayState(_data, MAP_FILEPATH)));
 #else

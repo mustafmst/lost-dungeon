@@ -6,6 +6,7 @@
 #include "StateMachine.hpp"
 #include "AssetManager.hpp"
 #include "PlayerInfoManager.hpp"
+#include "SaveModule.hpp"
 
 namespace ld
 {
@@ -16,6 +17,7 @@ namespace ld
 		StateMachine stateMachine;
 		AssetManager assets;
 		PlayerInfoManager playerInfo;
+		SaveModule save;
 	};
 	
 	typedef std::shared_ptr<GameData> GameDataRef;

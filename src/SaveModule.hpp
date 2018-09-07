@@ -4,24 +4,31 @@
 #include <memory>
 #include <string>
 #include <functional>
-#include "GameObject.hpp"
+
 
 namespace ld
 {
 using namespace std;
+
+class GameObject;
+class GameData;
+typedef std::shared_ptr<GameData> GameDataRef;
+
 class SaveModule
 {
-	bool saveExists = false;
-	map<string, function<GameObject(float,float)>> _objectCreators;
+	bool _saveExists = false;
+	map<string, function<shared_ptr<GameObject>(float,float)>> _objectCreators;
+	GameDataRef _data;
 	
-	GameObject CreatePlayer(float x, float y);
-	GameObject CreateSkeleton(float x, float y);
-	GameObject CreateGold(float x, float y);
-	GameObject CreatePotion(float x, float y);
+	static shared_ptr<GameObject> CreatePlayer(float x, float y);
+	static shared_ptr<GameObject> CreateSkeleton(float x, float y);
+	static shared_ptr<GameObject> CreateGold(float x, float y);
+	static shared_ptr<GameObject> CreatePotion(float x, float y);
 public:
 	SaveModule();
 	~SaveModule();
 	
+	void SetData(GameDataRef data);
 	void LoadSave();
 	void SaveGame();
 	bool SaveExists();
