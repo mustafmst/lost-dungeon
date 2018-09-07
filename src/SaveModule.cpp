@@ -3,6 +3,7 @@
 #include "GameObjectsCodes.h"
 #include "SaveConfig.h"
 #include <fstream>
+#include <sstream>
 #include "GameData.h"
 #include "PlayState.hpp"
 #include "gameObjectTypes.h"
@@ -19,8 +20,43 @@ ld::SaveModule::~SaveModule()
 {
 }
 
-void ld::SaveModule::LoadSave()
+void ld::SaveModule::LoadSave(PlayState& playState)
 {
+	ifstream saveFile(SAVE_FILE_NAME);
+	string line;
+	if(!(bool)saveFile)
+	{
+		saveFile.close();
+		return;
+	}
+	std::getline(saveFile, line);
+	istringstream basic(line);
+	float hp;
+	int coins;
+	bool djump;
+	basic >> hp >> coins >> djump;
+	_data->playerInfo.ChangeHealth(hp - _data->playerInfo.HealthMax);
+	_data->playerInfo.GiveCoins(coins);
+	if(djump) _data->playerInfo.UnlockDoubleJump();
+	else playState.InitDoubleJump();
+	while(std::getline(saveFile, line))
+	{
+		istringstream iss(line);
+		string type;
+		iss >> type;
+		if(type == SKELETON_CODE)
+		{
+			float x,y,left,right;
+			iss >> x >> y >> left >> right;
+			CreateSkeleton(x,y,left, right, playState);
+		}
+		else
+		{
+			float x,y;
+			iss >> x >> y;
+			_objectCreators[type](x,y,playState);
+		}
+	}
 }
 
 void ld::SaveModule::SaveGame()
@@ -48,18 +84,22 @@ bool ld::SaveModule::SaveExists()
 
 void ld::SaveModule::CreatePlayer(float x, float y, PlayState& playState)
 {
+	playState.LoadPlayer(x,y);
 }
 
 void ld::SaveModule::CreateSkeleton(float x, float y, float left, float right, PlayState& playState)
 {
+	playState.LoadSkeleton(x,y,left,right);
 }
 
 void ld::SaveModule::CreateGold(float x, float y, PlayState& playState)
 {
+	playState.LoadGold(x,y);
 }
 
 void ld::SaveModule::CreatePotion(float x, float y, PlayState& playState)
 {
+	playState.LoadHP(x,y);
 }
 
 void ld::SaveModule::SetData(GameDataRef data)

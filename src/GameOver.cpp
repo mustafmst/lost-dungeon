@@ -47,7 +47,7 @@ void ld::GameOver::Update(float delta)
 	if(_data->input.CheckIfWasClicked(_playButton.getPosition(), _playButton.getGlobalBounds(), _data->window))
 	{
 		_data->playerInfo.Reset();
-		_data->stateMachine.AddState(GameStateRef(new PlayState(_data, MAP_FILEPATH)), true);
+		_data->stateMachine.AddState(GameStateRef(new PlayState(_data, MAP_FILEPATH, false)), true);
 	}
 }
 

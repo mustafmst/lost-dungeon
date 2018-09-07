@@ -15,6 +15,7 @@ namespace ld
 	class PlayState : public GameState
 	{
 	private:
+		bool _isLoaded;
 		GameDataRef _data;
 		b2World _world;
 		std::shared_ptr<Player> _player;
@@ -27,7 +28,6 @@ namespace ld
 		void InitPlayer();
 		void InitMap(std::string mapFilePath);
 		void InitCoins();
-		void InitDoubleJump();
 		void InitHP();
 		void InitFinish();
 		void InitEnemies();
@@ -38,7 +38,7 @@ namespace ld
 		void AddFinish();
 		void AddEnemy(int x, int y, int left, int right);
 	public:
-		PlayState(GameDataRef data, std::string mapFilePath): _data(data), _mapName(mapFilePath), _world(b2Vec2(0.f,9.8f)) {}
+		PlayState(GameDataRef data, std::string mapFilePath, bool isLoaded): _data(data), _mapName(mapFilePath), _world(b2Vec2(0.f,9.8f)), _isLoaded(isLoaded) {}
 		std::vector<GameObjectRef> _gameObjects;
 		void Init();
 		void Update(float delta);
@@ -47,6 +47,7 @@ namespace ld
 		void LoadSkeleton(float x, float y, float left, float right);
 		void LoadGold(float x, float y);
 		void LoadHP(float x, float y);
+		void InitDoubleJump();
 	};
 }
 

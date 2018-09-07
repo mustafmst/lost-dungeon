@@ -12,18 +12,24 @@
 void ld::PlayState::Init()
 {
 	// Remember to init map first
-	_data->assets.LoadTexture(GEMS_NAME, GEMS_FILEPATH);
 	_eventHandler = std::unique_ptr<ContactListener>(new ContactListener());
 	_world.SetContactListener(&*_eventHandler);
 	_hud = std::unique_ptr<HUD>(new HUD(_data));
 	_hud->Init();
 	InitMap(_mapName);
-	InitPlayer();
+	if(_isLoaded)
+	{
+		_data->save.LoadSave(*this);
+	}
+	else 
+	{
+		InitPlayer();
+		InitHP();
+		InitCoins();
+		InitDoubleJump();
+		InitEnemies();
+	}
 	InitCamera();
-	InitHP();
-	InitCoins();
-	InitDoubleJump();
-	InitEnemies();
 	InitFinish();
 }
 
@@ -216,6 +222,11 @@ void ld::PlayState::InitDoubleJump()
 
 void ld::PlayState::LoadPlayer(float x, float y)
 {
+	_data->assets.LoadTexture(PLAYER_NAME, PLAYER_FILEPATH);
+	_player = std::shared_ptr<Player>(new Player(_data));
+	_player->Init(_data->assets.GetTexture(PLAYER_NAME), sf::Vector2f(x, y));
+	_player->InitPhysics(_world);
+	_gameObjects.push_back(_player);
 }
 
 void ld::PlayState::LoadSkeleton(float x, float y, float left, float right)
@@ -227,8 +238,12 @@ void ld::PlayState::LoadSkeleton(float x, float y, float left, float right)
 
 void ld::PlayState::LoadGold(float x, float y)
 {
+	auto coin = std::shared_ptr<GoldCoin>(new GoldCoin(_data, sf::Vector2f(x,y), _world));
+	_gameObjects.push_back(coin);
 }
 
 void ld::PlayState::LoadHP(float x, float y)
 {
+	auto hp = std::shared_ptr<HealthPotion>(new HealthPotion(_data, sf::Vector2f(x,y),_world));
+	_gameObjects.push_back(hp);
 }

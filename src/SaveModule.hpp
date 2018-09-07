@@ -30,7 +30,7 @@ public:
 	~SaveModule();
 	
 	void SetData(GameDataRef data);
-	void LoadSave();
+	void LoadSave(PlayState& playState);
 	void SaveGame();
 	void DeleteSave();
 	bool SaveExists();

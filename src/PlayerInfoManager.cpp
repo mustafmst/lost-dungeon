@@ -44,3 +44,8 @@ bool ld::PlayerInfoManager::CanDoubleJump()
 {
 	return _doubleJumpUnlocked;
 }
+
+void ld::PlayerInfoManager::GiveCoins(int count)
+{
+	_coins += count;
+}

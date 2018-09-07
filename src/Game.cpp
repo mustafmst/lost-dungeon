@@ -44,4 +44,5 @@ void ld::Game::LoadAssets()
 	_data->assets.LoatFont(FONT_NAME, FONT_FILEPATH);
 	_data->assets.LoatFont(FONT_SECONDARY_NAME, FONT_SECONDARY_FILEPATH);
 	_data->assets.LoadTexture(SKELETON_IDLE_NAME, SKELETON_IDLE_FILEPATH);
+	_data->assets.LoadTexture(GEMS_NAME, GEMS_FILEPATH);
 }

@@ -64,12 +64,13 @@ void ld::MainMenu::Update(float delta)
 	}
 	if(_data->save.SaveExists() && _data->input.CheckIfWasClicked(_loadButton.getPosition(), _loadButton.getGlobalBounds(), _data->window))
 	{
-		_data->save.LoadSave();
+		_data->playerInfo.Reset();
+		_data->stateMachine.AddState(GameStateRef(new PlayState(_data, MAP_FILEPATH, true)));
 	}
 	if(_data->input.CheckIfWasClicked(_playButton.getPosition(), _playButton.getGlobalBounds(), _data->window))
 	{
 		_data->playerInfo.Reset();
-		_data->stateMachine.AddState(GameStateRef(new PlayState(_data, MAP_FILEPATH)));
+		_data->stateMachine.AddState(GameStateRef(new PlayState(_data, MAP_FILEPATH, false)));
 	}
 }
 
