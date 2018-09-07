@@ -1,9 +1,29 @@
 [{
   "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -O2 -std=c++14 -std=c++11 -Wall -DNDEBUG -I. -I. -MG -MP -MT./Release/src_Player.cpp.o -MF./Release/src_Player.cpp.o.d -MM src/Player.cpp",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/Player.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -O2 -std=c++14 -std=c++11 -Wall -DNDEBUG -I. -I. -MG -MP -MT./Release/src_SaveModule.cpp.o -MF./Release/src_SaveModule.cpp.o.d -MM src/SaveModule.cpp",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/SaveModule.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
   "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/SaveModule.cpp -O2 -std=c++14 -std=c++11 -Wall -DNDEBUG -o ./Release/src_SaveModule.cpp.o -I. -I.",
   "file": "/home/pawel/studia/cpp/lost-dungeon/src/SaveModule.cpp"
  }, {
   "directory": "/home/pawel/studia/cpp/lost-dungeon",
   "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/Game.cpp -O2 -std=c++14 -std=c++11 -Wall -DNDEBUG -o ./Release/src_Game.cpp.o -I. -I.",
   "file": "/home/pawel/studia/cpp/lost-dungeon/src/Game.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/PlayState.cpp -O2 -std=c++14 -std=c++11 -Wall -DNDEBUG -o ./Release/src_PlayState.cpp.o -I. -I.",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/PlayState.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/MainMenu.cpp -O2 -std=c++14 -std=c++11 -Wall -DNDEBUG -o ./Release/src_MainMenu.cpp.o -I. -I.",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/MainMenu.cpp"
+ }, {
+  "directory": "/home/pawel/studia/cpp/lost-dungeon",
+  "command": "/usr/bin/g++ -c /home/pawel/studia/cpp/lost-dungeon/src/Player.cpp -O2 -std=c++14 -std=c++11 -Wall -DNDEBUG -o ./Release/src_Player.cpp.o -I. -I.",
+  "file": "/home/pawel/studia/cpp/lost-dungeon/src/Player.cpp"
  }]

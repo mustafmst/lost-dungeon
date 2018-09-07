@@ -19,6 +19,7 @@ void ld::SaveModule::LoadSave()
 
 void ld::SaveModule::SaveGame()
 {
+	_saveExists = true;
 }
 
 bool ld::SaveModule::SaveExists()
@@ -49,4 +50,9 @@ void ld::SaveModule::SetData(GameDataRef data)
 	_objectCreators[SKELETON_CODE] = CreateSkeleton;
 	_objectCreators[GOLD_COIN_CODE] = CreateGold;
 	_objectCreators[POTION_CODE] = CreatePotion;
+}
+
+void ld::SaveModule::DeleteSave()
+{
+	_saveExists = false;
 }

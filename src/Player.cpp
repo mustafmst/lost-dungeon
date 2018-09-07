@@ -22,6 +22,7 @@ void ld::Player::Update(float delta)
 	if(_player->IsAttacking()) Attack();
 	if(_data->playerInfo.GameIsOver())
 	{
+		_data->save.DeleteSave();
 		_data->stateMachine.AddState(GameStateRef(new GameOver(_data)), true);
 	}
 }
@@ -182,6 +183,7 @@ void ld::Player::Heal(float points)
 
 void ld::Player::FinishGame()
 {
+	_data->save.DeleteSave();
 	_data->stateMachine.AddState(GameStateRef(new FinishState(_data)), true);
 }
 

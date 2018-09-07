@@ -31,6 +31,7 @@ public:
 	void SetData(GameDataRef data);
 	void LoadSave();
 	void SaveGame();
+	void DeleteSave();
 	bool SaveExists();
 };
 

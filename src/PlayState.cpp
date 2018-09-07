@@ -84,6 +84,7 @@ void ld::PlayState::HandleInputs()
 {
 	if(_data->input.CheckIfKeyIsPressed(sf::Keyboard::Escape))
 	{
+		_data->save.SaveGame();
 		_data->stateMachine.RemoveState();
 	}
 }
